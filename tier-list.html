@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VirtualSkyList — Tier List</title>
+<meta name="description" content="Classe les avions, compagnies et add-ons par glisser-déposer et compare ton classement à celui de la communauté.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 34 34%22><rect width=%2234%22 height=%2234%22 rx=%229%22 fill=%22%233d8bff%22/><path d=%22M25.7 20.9 23.9 14l3-3c1.3-1.3 1.7-2.9 1.3-3.6-.7-.7-2.3-.3-3.6 1l-3 3-6.9-1.8c-.4-.1-.8.1-1 .4l-.2.4c-.2.4-.1.8.2 1.1l4.3 3.4-1.7 2.5H13l-.9.9 2.6 1.7 1.7 2.6.9-.9v-2.6l2.5-1.7 3.4 4.3c.3.3.7.4 1.1.2l.4-.2c.3-.2.5-.6.4-1z%22 fill=%22white%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ ICON SPRITE ============ -->
+<svg class="visually-hidden" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="6" x2="21" y2="6"/><line x1="9" y1="12" x2="21" y2="12"/><line x1="9" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></symbol>
+    <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15 14c.2-1 .7-1.7 1.4-2.5A4.65 4.65 0 0 0 18 8a6 6 0 0 0-12 0c0 1 .2 2.2 1.5 3.5.7.7 1.2 1.4 1.4 2.5"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><polyline points="22 4 12 14.1 9 11.1"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2Z"/></symbol>
+    <symbol id="i-alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
+    <symbol id="i-rotate-ccw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.7V17c0 .6-.5 1-1 1.2-1.2.5-2 1.9-2 3.8"/><path d="M14 14.7V17c0 .6.5 1 1 1.2 1.2.5 2 1.9 2 3.8"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><svg class="icon"><use href="#i-plane"/></svg></span>
+      VirtualSkyList
+    </a>
+    <nav class="main-nav">
+      <a href="index.html"><svg class="icon"><use href="#i-home"/></svg><span data-i18n="nav.home">Accueil</span></a>
+      <a href="tier-lists.html" class="is-active"><svg class="icon"><use href="#i-list"/></svg><span data-i18n="nav.tierlists">Tier Lists</span></a>
+      <a href="trends.html"><svg class="icon"><use href="#i-trending"/></svg><span data-i18n="nav.trends">Tendances</span></a>
+      <a href="community.html"><svg class="icon"><use href="#i-users"/></svg><span data-i18n="nav.community">Communauté</span></a>
+      <a href="index.html#suggest"><svg class="icon"><use href="#i-bulb"/></svg><span data-i18n="nav.suggest">Proposer du contenu</span></a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="fr" class="is-active">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <button type="button" class="btn btn-outline btn-sm">
+        <svg class="icon"><use href="#i-login"/></svg>
+        <span data-i18n="nav.signin">Se connecter</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="page-header">
+      <div>
+        <h1 id="tl-title">…</h1>
+        <p id="tl-desc"></p>
+      </div>
+      <div class="builder-actions">
+        <button type="button" class="btn btn-outline" id="reset-btn">
+          <svg class="icon"><use href="#i-rotate-ccw"/></svg>
+          <span data-i18n="builder.reset">Réinitialiser</span>
+        </button>
+        <button type="button" class="btn btn-primary" id="validate-btn">
+          <svg class="icon"><use href="#i-check-circle"/></svg>
+          <span data-i18n="builder.validate">Valider mon classement</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Shown only if SUPABASE_URL / SUPABASE_ANON_KEY haven't been set in tier-list.js -->
+    <div class="setup-banner" id="setup-banner" style="display:none">
+      <svg class="icon"><use href="#i-alert-triangle"/></svg>
+      <div>
+        <b>Backend non connecté.</b> Ajoute ton <code>SUPABASE_URL</code> et ta clé
+        <code>SUPABASE_ANON_KEY</code> en haut du fichier <code>tier-list.js</code>
+        pour activer le vote et le classement communautaire. Le fichier
+        <code>schema.sql</code> fourni crée les tables nécessaires — à exécuter une
+        fois dans l'éditeur SQL de ton projet Supabase.
+      </div>
+    </div>
+
+    <div class="state-msg" id="state-msg" data-i18n="builder.loading">Chargement…</div>
+
+    <div class="builder-layout" id="builder-layout" style="display:none">
+      <div>
+        <div class="tier-board" id="tier-board"></div>
+
+        <div class="panel hangar-panel">
+          <div class="panel-head">
+            <div class="section-title"><span data-i18n="builder.hangar">Hangar</span></div>
+            <span class="form-note" data-i18n="builder.hangarHint">Fais glisser chaque élément dans un tier.</span>
+          </div>
+          <div class="drop-zone" id="hangar-zone" role="list" aria-label="Hangar"></div>
+        </div>
+      </div>
+
+      <div class="panel community-panel">
+        <div class="panel-head">
+          <div class="section-title"><svg class="icon"><use href="#i-trophy"/></svg><span data-i18n="builder.community">Classement de la communauté</span></div>
+        </div>
+        <div class="rank-list" id="community-body"></div>
+        <div class="community-empty" id="community-empty" style="display:none"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div class="footer-brand">
+      <span class="brand-mark"><svg class="icon"><use href="#i-plane"/></svg></span>
+      VirtualSkyList
+    </div>
+    <span data-i18n="footer.copyright">© 2026 VirtualSkyList. Tous droits réservés.</span>
+    <nav class="footer-links">
+      <a href="#" data-i18n="footer.privacy">Confidentialité</a>
+      <a href="#" data-i18n="footer.terms">Conditions</a>
+      <a href="#" data-i18n="footer.contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <svg class="icon"><use href="#i-check-circle"/></svg>
+  <span id="toast-text"></span>
+</div>
+
+<script src="script.js"></script>
+<script type="module" src="tier-list.js"></script>
+</body>
+</html>

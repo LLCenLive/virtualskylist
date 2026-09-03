@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VirtualSkyList — Tendances</title>
+<meta name="description" content="Découvre ce qui grimpe et ce qui chute dans les classements de la communauté VirtualSkyList cette semaine.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 34 34%22><rect width=%2234%22 height=%2234%22 rx=%229%22 fill=%22%233d8bff%22/><path d=%22M25.7 20.9 23.9 14l3-3c1.3-1.3 1.7-2.9 1.3-3.6-.7-.7-2.3-.3-3.6 1l-3 3-6.9-1.8c-.4-.1-.8.1-1 .4l-.2.4c-.2.4-.1.8.2 1.1l4.3 3.4-1.7 2.5H13l-.9.9 2.6 1.7 1.7 2.6.9-.9v-2.6l2.5-1.7 3.4 4.3c.3.3.7.4 1.1.2l.4-.2c.3-.2.5-.6.4-1z%22 fill=%22white%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ ICON SPRITE ============ -->
+<svg class="visually-hidden" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="6" x2="21" y2="6"/><line x1="9" y1="12" x2="21" y2="12"/><line x1="9" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></symbol>
+    <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15 14c.2-1 .7-1.7 1.4-2.5A4.65 4.65 0 0 0 18 8a6 6 0 0 0-12 0c0 1 .2 2.2 1.5 3.5.7.7 1.2 1.4 1.4 2.5"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="6 11 12 5 18 11"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><polyline points="22 4 12 14.1 9 11.1"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2Z"/></symbol>
+    <symbol id="i-puzzle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3.2A2 2 0 1 1 9 5v3h3a1 1 0 0 1 1 1v3h2.2A2 2 0 1 1 17 15H15v3a1 1 0 0 1-1 1H9v-2.2A2 2 0 1 0 5 17v2H4a1 1 0 0 1-1-1v-4h2.2A2 2 0 1 0 5 9V8a1 1 0 0 1 1-1Z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-bar-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></symbol>
+    <symbol id="i-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.2 9.4 5 3h5l2 5.1"/><path d="M16.8 9.4 19 3h-5l-2 5.1"/><circle cx="12" cy="15" r="6"/><path d="M12 12v3l2 1.2"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><svg class="icon"><use href="#i-plane"/></svg></span>
+      VirtualSkyList
+    </a>
+    <nav class="main-nav">
+      <a href="index.html"><svg class="icon"><use href="#i-home"/></svg><span data-i18n="nav.home">Accueil</span></a>
+      <a href="tier-lists.html"><svg class="icon"><use href="#i-list"/></svg><span data-i18n="nav.tierlists">Tier Lists</span></a>
+      <a href="trends.html" class="is-active"><svg class="icon"><use href="#i-trending"/></svg><span data-i18n="nav.trends">Tendances</span></a>
+      <a href="community.html"><svg class="icon"><use href="#i-users"/></svg><span data-i18n="nav.community">Communauté</span></a>
+      <a href="index.html#suggest"><svg class="icon"><use href="#i-bulb"/></svg><span data-i18n="nav.suggest">Proposer du contenu</span></a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="fr" class="is-active">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <button type="button" class="btn btn-outline btn-sm">
+        <svg class="icon"><use href="#i-login"/></svg>
+        <span data-i18n="nav.signin">Se connecter</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="page-header">
+      <div>
+        <h1 data-i18n="trends.page.title">Tendances</h1>
+        <p data-i18n="trends.page.sub">Ce qui grimpe (et ce qui chute) dans les classements de la communauté cette semaine.</p>
+      </div>
+      <div class="filter-tabs" data-group="range">
+        <button class="filter-tab is-active" type="button" data-filter="week" data-i18n="trends.range.week">Cette semaine</button>
+        <button class="filter-tab" type="button" data-filter="month" data-i18n="trends.range.month">Ce mois</button>
+        <button class="filter-tab" type="button" data-filter="all" data-i18n="trends.range.all">Toujours</button>
+      </div>
+    </div>
+
+    <!-- ============ PODIUM ============ -->
+    <div class="panel">
+      <div class="section-title" style="justify-content:center">
+        <svg class="icon"><use href="#i-medal"/></svg>
+        <span data-i18n="trends.podium.title">Top 3 de la semaine</span>
+      </div>
+
+      <div class="podium">
+        <div class="podium-col" data-place="2">
+          <span class="podium-thumb"><svg class="icon"><use href="#i-plane"/></svg></span>
+          <div class="podium-name">E190-E2</div>
+          <div class="podium-score">▲18</div>
+          <div class="podium-bar">2</div>
+        </div>
+        <div class="podium-col" data-place="1">
+          <span class="podium-thumb"><svg class="icon"><use href="#i-plane"/></svg></span>
+          <div class="podium-name">Concorde</div>
+          <div class="podium-score">▲23</div>
+          <div class="podium-bar">1</div>
+        </div>
+        <div class="podium-col" data-place="3">
+          <span class="podium-thumb"><svg class="icon"><use href="#i-plane"/></svg></span>
+          <div class="podium-name">iniBuilds A310</div>
+          <div class="podium-score">▲16</div>
+          <div class="podium-bar">3</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ RISERS / FALLERS ============ -->
+    <div class="split-grid">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="section-title"><svg class="icon"><use href="#i-trending"/></svg><span data-i18n="trends.risers.title">Plus fortes progressions</span></div>
+        </div>
+        <div class="rank-list">
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#2b2140"><svg class="icon" style="color:#c3a2e8"><use href="#i-plane"/></svg></span><span><span class="trend-name">Concorde</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>23</span></div>
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#20302a"><svg class="icon" style="color:#8fd6b0"><use href="#i-plane"/></svg></span><span><span class="trend-name">E190-E2</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>18</span></div>
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#1c2a44"><svg class="icon" style="color:#8fb3ec"><use href="#i-plane"/></svg></span><span><span class="trend-name">iniBuilds A310</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>16</span></div>
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#0e3a4a"><svg class="icon" style="color:#5fd0e0"><use href="#i-pin"/></svg></span><span><span class="trend-name">KSFO</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>14</span></div>
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#33301b"><svg class="icon" style="color:#e0d68f"><use href="#i-plane"/></svg></span><span><span class="trend-name">777-300ER</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>12</span></div>
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#3a2130"><svg class="icon" style="color:#e8a2ac"><use href="#i-plane"/></svg></span><span><span class="trend-name">A350</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>9</span></div>
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#3a2160"><svg class="icon" style="color:#c3a2e8"><use href="#i-puzzle"/></svg></span><span><span class="trend-name">Fenix A320</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>7</span></div>
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#0e3a4a"><svg class="icon" style="color:#5fd0e0"><use href="#i-pin"/></svg></span><span><span class="trend-name">CDG</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>5</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div class="section-title"><svg class="icon" style="color:#f87171"><use href="#i-trending"/></svg><span data-i18n="trends.fallers.title">Plus fortes baisses</span></div>
+        </div>
+        <div class="rank-list">
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#1c2a44"><svg class="icon" style="color:#8fb3ec"><use href="#i-plane"/></svg></span><span><span class="trend-name">MD-11</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up trend-down"><svg class="icon"><use href="#i-arrow-up"/></svg>8</span></div>
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#1c2a44"><svg class="icon" style="color:#8fb3ec"><use href="#i-plane"/></svg></span><span><span class="trend-name">CRJ 700</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up trend-down"><svg class="icon"><use href="#i-arrow-up"/></svg>5</span></div>
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#33301b"><svg class="icon" style="color:#e0d68f"><use href="#i-plane"/></svg></span><span><span class="trend-name">Dash 8 Q400</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up trend-down"><svg class="icon"><use href="#i-arrow-up"/></svg>4</span></div>
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#33301b"><svg class="icon" style="color:#e0d68f"><use href="#i-plane"/></svg></span><span><span class="trend-name">TBM 850</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up trend-down"><svg class="icon"><use href="#i-arrow-up"/></svg>3</span></div>
+          <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#1c2a44"><svg class="icon" style="color:#8fb3ec"><use href="#i-plane"/></svg></span><span><span class="trend-name">A320neo</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up trend-down"><svg class="icon"><use href="#i-arrow-up"/></svg>2</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ACTIVITY CHART ============ -->
+    <div class="panel chart-panel" style="margin-top:22px">
+      <div class="section-title"><svg class="icon"><use href="#i-bar-chart"/></svg><span data-i18n="trends.chart.title">Activité de vote — 7 derniers jours</span></div>
+      <div class="chart-bars">
+        <div class="chart-bar"><div class="chart-bar-fill" style="height:44%"></div><span class="chart-bar-label" data-i18n="day.mon">Lun</span></div>
+        <div class="chart-bar"><div class="chart-bar-fill" style="height:58%"></div><span class="chart-bar-label" data-i18n="day.tue">Mar</span></div>
+        <div class="chart-bar"><div class="chart-bar-fill" style="height:50%"></div><span class="chart-bar-label" data-i18n="day.wed">Mer</span></div>
+        <div class="chart-bar"><div class="chart-bar-fill" style="height:72%"></div><span class="chart-bar-label" data-i18n="day.thu">Jeu</span></div>
+        <div class="chart-bar"><div class="chart-bar-fill" style="height:64%"></div><span class="chart-bar-label" data-i18n="day.fri">Ven</span></div>
+        <div class="chart-bar"><div class="chart-bar-fill" style="height:94%"></div><span class="chart-bar-label" data-i18n="day.sat">Sam</span></div>
+        <div class="chart-bar"><div class="chart-bar-fill" style="height:80%"></div><span class="chart-bar-label" data-i18n="day.sun">Dim</span></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div class="footer-brand">
+      <span class="brand-mark"><svg class="icon"><use href="#i-plane"/></svg></span>
+      VirtualSkyList
+    </div>
+    <span data-i18n="footer.copyright">© 2026 VirtualSkyList. Tous droits réservés.</span>
+    <nav class="footer-links">
+      <a href="#" data-i18n="footer.privacy">Confidentialité</a>
+      <a href="#" data-i18n="footer.terms">Conditions</a>
+      <a href="#" data-i18n="footer.contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <svg class="icon"><use href="#i-check-circle"/></svg>
+  <span id="toast-text"></span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

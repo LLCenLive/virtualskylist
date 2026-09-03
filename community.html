@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VirtualSkyList — Communauté</title>
+<meta name="description" content="Découvre les membres, contributeurs et l'activité récente de la communauté VirtualSkyList.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 34 34%22><rect width=%2234%22 height=%2234%22 rx=%229%22 fill=%22%233d8bff%22/><path d=%22M25.7 20.9 23.9 14l3-3c1.3-1.3 1.7-2.9 1.3-3.6-.7-.7-2.3-.3-3.6 1l-3 3-6.9-1.8c-.4-.1-.8.1-1 .4l-.2.4c-.2.4-.1.8.2 1.1l4.3 3.4-1.7 2.5H13l-.9.9 2.6 1.7 1.7 2.6.9-.9v-2.6l2.5-1.7 3.4 4.3c.3.3.7.4 1.1.2l.4-.2c.3-.2.5-.6.4-1z%22 fill=%22white%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ ICON SPRITE ============ -->
+<svg class="visually-hidden" aria-hidden="true">
+  <defs>
+    <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="6" x2="21" y2="6"/><line x1="9" y1="12" x2="21" y2="12"/><line x1="9" y1="18" x2="21" y2="18"/><circle cx="4" cy="6" r="1"/><circle cx="4" cy="12" r="1"/><circle cx="4" cy="18" r="1"/></symbol>
+    <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15 14c.2-1 .7-1.7 1.4-2.5A4.65 4.65 0 0 0 18 8a6 6 0 0 0-12 0c0 1 .2 2.2 1.5 3.5.7.7 1.2 1.4 1.4 2.5"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2Z"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.7V17c0 .6-.5 1-1 1.2-1.2.5-2 1.9-2 3.8"/><path d="M14 14.7V17c0 .6.5 1 1 1.2 1.2.5 2 1.9 2 3.8"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+    <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><polyline points="22 4 12 14.1 9 11.1"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-row">
+    <a href="index.html" class="brand">
+      <span class="brand-mark"><svg class="icon"><use href="#i-plane"/></svg></span>
+      VirtualSkyList
+    </a>
+    <nav class="main-nav">
+      <a href="index.html"><svg class="icon"><use href="#i-home"/></svg><span data-i18n="nav.home">Accueil</span></a>
+      <a href="tier-lists.html"><svg class="icon"><use href="#i-list"/></svg><span data-i18n="nav.tierlists">Tier Lists</span></a>
+      <a href="trends.html"><svg class="icon"><use href="#i-trending"/></svg><span data-i18n="nav.trends">Tendances</span></a>
+      <a href="community.html" class="is-active"><svg class="icon"><use href="#i-users"/></svg><span data-i18n="nav.community">Communauté</span></a>
+      <a href="index.html#suggest"><svg class="icon"><use href="#i-bulb"/></svg><span data-i18n="nav.suggest">Proposer du contenu</span></a>
+    </nav>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="fr" class="is-active">FR</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+      <button type="button" class="btn btn-outline btn-sm">
+        <svg class="icon"><use href="#i-login"/></svg>
+        <span data-i18n="nav.signin">Se connecter</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="page-header">
+      <div>
+        <h1 data-i18n="community.page.title">Communauté</h1>
+        <p data-i18n="community.page.sub">Découvre les pilotes qui façonnent VirtualSkyList.</p>
+      </div>
+      <a href="trends.html" class="btn btn-outline">
+        <svg class="icon"><use href="#i-trending"/></svg>
+        <span data-i18n="community.seeTrends">Voir les tendances</span>
+      </a>
+    </div>
+
+    <!-- ============ STATS ============ -->
+    <div class="stat-grid">
+      <div class="stat-card">
+        <svg class="icon"><use href="#i-users"/></svg>
+        <div class="stat-value" data-i18n="stat.members.value">8 400+</div>
+        <div class="stat-label" data-i18n="stat.members.label">Membres actifs</div>
+      </div>
+      <div class="stat-card">
+        <svg class="icon"><use href="#i-list"/></svg>
+        <div class="stat-value" data-i18n="stat.lists.value">1 260+</div>
+        <div class="stat-label" data-i18n="stat.lists.label">Tier lists créées</div>
+      </div>
+      <div class="stat-card">
+        <svg class="icon"><use href="#i-trending"/></svg>
+        <div class="stat-value" data-i18n="stat.votes.value">50k+</div>
+        <div class="stat-label" data-i18n="stat.votes.label">Votes total</div>
+      </div>
+      <div class="stat-card">
+        <svg class="icon"><use href="#i-plane"/></svg>
+        <div class="stat-value" data-i18n="stat.aircraft.value">640+</div>
+        <div class="stat-label" data-i18n="stat.aircraft.label">Avions référencés</div>
+      </div>
+    </div>
+
+    <!-- ============ LEADERBOARD + ACTIVITY ============ -->
+    <div class="split-grid">
+      <div class="panel">
+        <div class="panel-head">
+          <div class="section-title"><svg class="icon"><use href="#i-trophy"/></svg><span data-i18n="leaderboard.title">Meilleurs contributeurs</span></div>
+        </div>
+        <div class="leaderboard">
+          <div class="leaderboard-row" data-rank="1">
+            <span class="leaderboard-rank">1</span>
+            <span class="leaderboard-avatar" style="background:#3d8bff">AR</span>
+            <span>
+              <div class="leaderboard-name">AeroRanker</div>
+              <div class="leaderboard-sub" data-i18n="lb.row1.role">Créateur de tier lists</div>
+            </span>
+            <span class="leaderboard-stat" data-i18n="lb.row1.score">2 840 pts</span>
+          </div>
+          <div class="leaderboard-row" data-rank="2">
+            <span class="leaderboard-rank">2</span>
+            <span class="leaderboard-avatar" style="background:#35d0e0">SM</span>
+            <span>
+              <div class="leaderboard-name">SkyMarshal</div>
+              <div class="leaderboard-sub" data-i18n="lb.row2.role">Votant assidu</div>
+            </span>
+            <span class="leaderboard-stat" data-i18n="lb.row2.score">1 920 pts</span>
+          </div>
+          <div class="leaderboard-row" data-rank="3">
+            <span class="leaderboard-rank">3</span>
+            <span class="leaderboard-avatar" style="background:#c2793f">RR</span>
+            <span>
+              <div class="leaderboard-name">RunwayReady</div>
+              <div class="leaderboard-sub" data-i18n="lb.row3.role">Créateur de tier lists</div>
+            </span>
+            <span class="leaderboard-stat" data-i18n="lb.row3.score">1 510 pts</span>
+          </div>
+          <div class="leaderboard-row" data-rank="4">
+            <span class="leaderboard-rank">4</span>
+            <span class="leaderboard-avatar" style="background:#6a5fd0">IA</span>
+            <span>
+              <div class="leaderboard-name">ILS_Approach</div>
+              <div class="leaderboard-sub" data-i18n="lb.row4.role">Votant assidu</div>
+            </span>
+            <span class="leaderboard-stat" data-i18n="lb.row4.score">1 180 pts</span>
+          </div>
+          <div class="leaderboard-row" data-rank="5">
+            <span class="leaderboard-rank">5</span>
+            <span class="leaderboard-avatar" style="background:#d1a531">HM</span>
+            <span>
+              <div class="leaderboard-name">HeavyMetalHeli</div>
+              <div class="leaderboard-sub" data-i18n="lb.row5.role">Membre actif</div>
+            </span>
+            <span class="leaderboard-stat" data-i18n="lb.row5.score">940 pts</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div class="section-title"><svg class="icon"><use href="#i-zap"/></svg><span data-i18n="activity.title">Activité récente</span></div>
+        </div>
+        <div class="activity-list">
+          <div class="activity-row">
+            <span class="activity-dot"></span>
+            <span>
+              <div class="activity-text" data-i18n="act1.text">AeroRanker a mis à jour Avions de ligne commerciaux</div>
+              <div class="activity-time" data-i18n="act1.time">Il y a 2h</div>
+            </span>
+          </div>
+          <div class="activity-row">
+            <span class="activity-dot"></span>
+            <span>
+              <div class="activity-text" data-i18n="act2.text">SkyMarshal a voté sur Meilleurs aéroports</div>
+              <div class="activity-time" data-i18n="act2.time">Il y a 4h</div>
+            </span>
+          </div>
+          <div class="activity-row">
+            <span class="activity-dot"></span>
+            <span>
+              <div class="activity-text" data-i18n="act3.text">Nouveau membre : RunwayReady</div>
+              <div class="activity-time" data-i18n="act3.time">Il y a 6h</div>
+            </span>
+          </div>
+          <div class="activity-row">
+            <span class="activity-dot"></span>
+            <span>
+              <div class="activity-text" data-i18n="act4.text">ILS_Approach a proposé un avion : Boeing 777-8</div>
+              <div class="activity-time" data-i18n="act4.time">Il y a 9h</div>
+            </span>
+          </div>
+          <div class="activity-row">
+            <span class="activity-dot"></span>
+            <span>
+              <div class="activity-text" data-i18n="act5.text">HeavyMetalHeli a créé Meilleures livrées</div>
+              <div class="activity-time" data-i18n="act5.time">Il y a 1j</div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div class="footer-brand">
+      <span class="brand-mark"><svg class="icon"><use href="#i-plane"/></svg></span>
+      VirtualSkyList
+    </div>
+    <span data-i18n="footer.copyright">© 2026 VirtualSkyList. Tous droits réservés.</span>
+    <nav class="footer-links">
+      <a href="#" data-i18n="footer.privacy">Confidentialité</a>
+      <a href="#" data-i18n="footer.terms">Conditions</a>
+      <a href="#" data-i18n="footer.contact">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="toast" id="toast">
+  <svg class="icon"><use href="#i-check-circle"/></svg>
+  <span id="toast-text"></span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
