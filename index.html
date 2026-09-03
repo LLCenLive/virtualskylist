@@ -59,6 +59,7 @@
       <a href="index.html" class="is-active"><svg class="icon"><use href="#i-home"/></svg><span data-i18n="nav.home">Accueil</span></a>
       <a href="tier-lists.html"><svg class="icon"><use href="#i-list"/></svg><span data-i18n="nav.tierlists">Tier Lists</span></a>
       <a href="trends.html"><svg class="icon"><use href="#i-trending"/></svg><span data-i18n="nav.trends">Tendances</span></a>
+      <a href="the-clash.html"><svg class="icon"><use href="#i-flame"/></svg><span data-i18n="nav.clash">The Clash</span></a>
       <a href="community.html"><svg class="icon"><use href="#i-users"/></svg><span data-i18n="nav.community">Communauté</span></a>
       <a href="index.html#suggest"><svg class="icon"><use href="#i-bulb"/></svg><span data-i18n="nav.suggest">Proposer du contenu</span></a>
     </nav>
@@ -107,7 +108,7 @@
         </h1>
         <p class="hero-sub" data-i18n="hero.sub">Vote pour les avions, compagnies aériennes, aéroports et add-ons de simulateur de vol. Les données de notre communauté révèlent les favoris et les valeurs montantes.</p>
         <div class="hero-actions">
-          <a href="#trending" class="btn btn-primary">
+          <a href="trends.html" class="btn btn-primary">
             <svg class="icon"><use href="#i-compass"/></svg>
             <span data-i18n="hero.cta2">Explorer les classements</span>
           </a>
@@ -154,63 +155,10 @@
           <a href="#" class="see-all" style="margin-left:auto" data-i18n="trending.viewall">Voir tout</a>
         </div>
 
-        <div class="trending-grid">
-          <a class="list-card" href="tier-list.html?slug=avions-de-ligne">
-            <div class="list-card-media" style="--tile-bg: linear-gradient(135deg, #14335c, #0a1730)">
-              <span class="media-icon-badge" style="color:#5fa8ff"><svg class="icon"><use href="#i-plane"/></svg></span>
-              <svg class="icon" style="color:#dfeaff"><use href="#i-plane" width="40" height="40"/></svg>
-            </div>
-            <div class="list-card-body">
-              <h3 data-i18n="card1.title">Meilleurs avions de ligne</h3>
-              <div class="list-card-votes" data-i18n="votes.empty">Pas encore de votes</div>
-              <p data-i18n="card1.desc">Classement des meilleurs avions de ligne commerciaux de tous les temps.</p>
-            </div>
-          </a>
-
-          <a class="list-card" href="tier-lists.html?filter=addons">
-            <div class="list-card-media" style="--tile-bg: linear-gradient(135deg, #3a2160, #150c30)">
-              <span class="media-icon-badge" style="color:#c3a2e8"><svg class="icon"><use href="#i-puzzle"/></svg></span>
-              <svg class="icon" style="color:#e8dcff"><use href="#i-puzzle" width="38" height="38"/></svg>
-            </div>
-            <div class="list-card-body">
-              <h3 data-i18n="card2.title">Meilleurs add-ons MSFS</h3>
-              <div class="list-card-votes" data-i18n="votes.empty">Pas encore de votes</div>
-              <p data-i18n="card2.desc">Avions payware et studios pour MSFS 2024 : PMDG, Fenix, iniBuilds, ToLiss, A2A, Just Flight, Carenado et plus.</p>
-            </div>
-          </a>
-
-          <a class="list-card" href="tier-list.html?slug=aeroports">
-            <div class="list-card-media" style="--tile-bg: linear-gradient(135deg, #0e3a4a, #081a24)">
-              <span class="media-icon-badge" style="color:#5fd0e0"><svg class="icon"><use href="#i-pin"/></svg></span>
-              <svg class="icon" style="color:#cdf3f8"><use href="#i-pin" width="38" height="38"/></svg>
-            </div>
-            <div class="list-card-body">
-              <h3 data-i18n="card3.title">Meilleurs aéroports</h3>
-              <div class="list-card-votes" data-i18n="votes.empty">Pas encore de votes</div>
-              <p data-i18n="card3.desc">Les meilleurs aéroports du monde, pour l'exploitation comme pour l'expérience.</p>
-            </div>
-          </a>
-
-          <a class="list-card" href="tier-list.html?slug=livrees">
-            <div class="list-card-media" style="--tile-bg: linear-gradient(135deg, #5c3a14, #2c1808)">
-              <span class="media-icon-badge" style="color:#f0b96a"><svg class="icon"><use href="#i-palette"/></svg></span>
-              <svg class="icon" style="color:#ffe6c2"><use href="#i-palette" width="38" height="38"/></svg>
-            </div>
-            <div class="list-card-body">
-              <h3 data-i18n="card4.title">Meilleures livrées</h3>
-              <div class="list-card-votes" data-i18n="votes.empty">Pas encore de votes</div>
-              <p data-i18n="card4.desc">Les livrées les plus iconiques et les plus belles de l'aviation.</p>
-            </div>
-          </a>
-        </div>
+        <div class="trending-grid" id="trending-grid"></div>
 
         <div class="carousel-dots">
           <button class="carousel-nav" type="button" aria-label="Previous"><svg class="icon"><use href="#i-chev-left"/></svg></button>
-          <button class="dot is-active" aria-label="Page 1"></button>
-          <button class="dot" aria-label="Page 2"></button>
-          <button class="dot" aria-label="Page 3"></button>
-          <button class="dot" aria-label="Page 4"></button>
-          <button class="dot" aria-label="Page 5"></button>
           <button class="carousel-nav" type="button" aria-label="Next"><svg class="icon"><use href="#i-chev-right"/></svg></button>
         </div>
       </div>
@@ -251,19 +199,20 @@
         <p data-i18n="suggest.sub">Aidez-nous à façonner VirtualSkyList en proposant de nouvelles tier lists ou des avions qui manquent.</p>
       </div>
 
-      <form class="suggest-form" data-toast="tierlist">
+      <form class="suggest-form" id="suggest-tierlist-form">
         <h3 data-i18n="suggest.form1.title">Proposer une tier list</h3>
         <div class="form-row">
-          <input class="field" type="text" data-i18n-placeholder="suggest.form1.placeholder" placeholder="ex. Meilleurs avions cargo">
-          <select class="field" style="max-width:150px">
-            <option data-i18n="suggest.form1.category">Catégorie</option>
-            <option data-i18n="suggest.opt.airliners">Avions de ligne</option>
-            <option data-i18n="suggest.opt.ga">Aviation générale</option>
-            <option data-i18n="suggest.opt.airports">Aéroports</option>
-            <option data-i18n="suggest.opt.addons">Add-ons simulateur</option>
-            <option data-i18n="suggest.opt.liveries">Livrées</option>
+          <input class="field" type="text" id="suggest-tierlist-name" data-i18n-placeholder="suggest.form1.placeholder" placeholder="ex. Meilleurs avions cargo">
+          <select class="field" id="suggest-tierlist-category" style="max-width:150px">
+            <option value="" data-i18n="suggest.form1.category">Catégorie</option>
+            <option value="airliners" data-i18n="suggest.opt.airliners">Avions de ligne</option>
+            <option value="ga" data-i18n="suggest.opt.ga">Aviation générale</option>
+            <option value="airports" data-i18n="suggest.opt.airports">Aéroports</option>
+            <option value="addons" data-i18n="suggest.opt.addons">Add-ons simulateur</option>
+            <option value="liveries" data-i18n="suggest.opt.liveries">Livrées</option>
           </select>
         </div>
+        <p class="auth-error" id="suggest-tierlist-error" style="display:none"></p>
         <button type="submit" class="btn btn-primary btn-block">
           <svg class="icon"><use href="#i-send"/></svg>
           <span data-i18n="suggest.submit">Envoyer la suggestion</span>
@@ -272,19 +221,20 @@
 
       <div class="suggest-or" data-i18n="suggest.or">OU</div>
 
-      <form class="suggest-form" data-toast="aircraft">
+      <form class="suggest-form" id="suggest-aircraft-form">
         <h3 data-i18n="suggest.form2.title">Proposer un avion</h3>
         <div class="form-row">
-          <input class="field" type="text" data-i18n-placeholder="suggest.form2.placeholder" placeholder="ex. Boeing 777-8">
-          <select class="field" style="max-width:150px">
-            <option data-i18n="suggest.form2.type">Type d'avion</option>
-            <option data-i18n="suggest.opt.airliner">Avion de ligne</option>
-            <option data-i18n="suggest.opt.gaSingle">Aviation générale</option>
-            <option data-i18n="suggest.opt.heli">Hélicoptère</option>
-            <option data-i18n="suggest.opt.military">Militaire</option>
-            <option data-i18n="suggest.opt.cargo">Cargo</option>
+          <input class="field" type="text" id="suggest-aircraft-name" data-i18n-placeholder="suggest.form2.placeholder" placeholder="ex. Boeing 777-8">
+          <select class="field" id="suggest-aircraft-type" style="max-width:150px">
+            <option value="" data-i18n="suggest.form2.type">Type d'avion</option>
+            <option value="airliner" data-i18n="suggest.opt.airliner">Avion de ligne</option>
+            <option value="ga" data-i18n="suggest.opt.gaSingle">Aviation générale</option>
+            <option value="heli" data-i18n="suggest.opt.heli">Hélicoptère</option>
+            <option value="military" data-i18n="suggest.opt.military">Militaire</option>
+            <option value="cargo" data-i18n="suggest.opt.cargo">Cargo</option>
           </select>
         </div>
+        <p class="auth-error" id="suggest-aircraft-error" style="display:none"></p>
         <button type="submit" class="btn btn-primary btn-block">
           <svg class="icon"><use href="#i-send"/></svg>
           <span data-i18n="suggest.submit">Envoyer la suggestion</span>
@@ -310,11 +260,11 @@
       <span class="brand-mark"><svg class="icon"><use href="#i-plane"/></svg></span>
       VirtualSkyList
     </div>
-    <span data-i18n="footer.copyright">© 2026 VirtualSkyList. Tous droits réservés.</span>
     <nav class="footer-links">
-      <a href="#" data-i18n="footer.privacy">Confidentialité</a>
-      <a href="#" data-i18n="footer.terms">Conditions</a>
-      <a href="#" data-i18n="footer.contact">Contact</a>
+      <a href="privacy.html" data-i18n="footer.privacy">Confidentialité</a>
+      <a href="terms.html" data-i18n="footer.terms">Conditions</a>
+      <a href="contact.html" data-i18n="footer.contact">Contact</a>
+      <a href="https://discord.com/invite/wcU7JBCQQH" target="_blank" rel="noopener noreferrer">Discord</a>
     </nav>
   </div>
   <div class="wrap footer-credit">
@@ -349,5 +299,7 @@
 
 <script src="script.js"></script>
 <script type="module" src="auth.js"></script>
+<script type="module" src="home.js"></script>
+<script type="module" src="suggest.js"></script>
 </body>
 </html>

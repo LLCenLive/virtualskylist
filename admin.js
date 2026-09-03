@@ -22,12 +22,25 @@ const el = {
   tlForm: document.getElementById("admin-tl-form"),
   tlFormId: document.getElementById("tl-form-id"),
   tlFormSlug: document.getElementById("tl-form-slug"),
+  tlFormCategory: document.getElementById("tl-form-category"),
   tlFormTitleFr: document.getElementById("tl-form-title-fr"),
   tlFormTitleEn: document.getElementById("tl-form-title-en"),
   tlFormDescFr: document.getElementById("tl-form-desc-fr"),
   tlFormDescEn: document.getElementById("tl-form-desc-en"),
+  tlFormImage: document.getElementById("tl-form-image"),
   tlFormCancel: document.getElementById("tl-form-cancel"),
   tlList: document.getElementById("admin-tl-list"),
+
+  suggestTierlists: document.getElementById("admin-suggest-tierlists"),
+  suggestAircraft: document.getElementById("admin-suggest-aircraft"),
+
+  clashForm: document.getElementById("clash-form"),
+  clashTitleFr: document.getElementById("clash-title-fr"),
+  clashTitleEn: document.getElementById("clash-title-en"),
+  clashItemAName: document.getElementById("clash-item-a-name"),
+  clashItemBName: document.getElementById("clash-item-b-name"),
+  clashItemAImage: document.getElementById("clash-item-a-image"),
+  clashItemBImage: document.getElementById("clash-item-b-image"),
 };
 
 let expandedId = null;
@@ -100,7 +113,19 @@ async function checkAccessAndInit() {
   el.gate.style.display = "none";
   el.content.style.display = "block";
   loadTierLists();
+  loadSuggestions();
+  loadClash();
 }
+
+/* =============================================================
+   Section tabs (Tier lists / Suggestions / The Clash)
+   ============================================================= */
+const sectionTabs = document.querySelector('.filter-tabs[data-group="admin-section"]');
+sectionTabs?.addEventListener("tabchange", (e) => {
+  document.querySelectorAll(".admin-section").forEach((section) => {
+    section.style.display = section.dataset.section === e.detail.value ? "block" : "none";
+  });
+});
 
 el.gateCta?.addEventListener("click", () => window.VSL_AUTH?.openModal("signin"));
 
@@ -166,10 +191,12 @@ function openTlForm(tl) {
   el.tlFormId.value = tl?.id || "";
   el.tlFormSlug.value = tl?.slug || "";
   el.tlFormSlug.disabled = !!tl; // slug is the stable key items/rankings key off of — lock it once created
+  el.tlFormCategory.value = tl?.category || "airliners";
   el.tlFormTitleFr.value = tl?.title_fr || "";
   el.tlFormTitleEn.value = tl?.title_en || "";
   el.tlFormDescFr.value = tl?.desc_fr || "";
   el.tlFormDescEn.value = tl?.desc_en || "";
+  el.tlFormImage.value = tl?.image_url || "";
   el.tlForm.style.display = "block";
   el.tlFormSlug.scrollIntoView({ behavior: "smooth", block: "center" });
 }
@@ -188,10 +215,12 @@ el.tlForm?.addEventListener("submit", async (e) => {
   const id = el.tlFormId.value || undefined;
   const payload = {
     slug: el.tlFormSlug.value.trim(),
+    category: el.tlFormCategory.value,
     title_fr: el.tlFormTitleFr.value.trim(),
     title_en: el.tlFormTitleEn.value.trim(),
     desc_fr: el.tlFormDescFr.value.trim() || null,
     desc_en: el.tlFormDescEn.value.trim() || null,
+    image_url: el.tlFormImage.value.trim() || null,
   };
   if (id) payload.id = id;
 
@@ -365,5 +394,103 @@ async function deleteItem(item, tierListId, panel) {
   showToast(t("admin.deleted"));
   loadItems(tierListId, panel);
 }
+
+/* =============================================================
+   Suggestions review
+   ============================================================= */
+async function loadSuggestions() {
+  const { data, error } = await supabase
+    .from("suggestions")
+    .select("*")
+    .order("created_at", { ascending: false });
+  if (error) {
+    showToast(t("admin.loadError"));
+    return;
+  }
+  const all = data || [];
+  renderSuggestionList(el.suggestTierlists, all.filter((s) => s.kind === "tierlist"));
+  renderSuggestionList(el.suggestAircraft, all.filter((s) => s.kind === "aircraft"));
+}
+
+function renderSuggestionList(container, rows) {
+  container.innerHTML = "";
+  if (!rows.length) {
+    const empty = document.createElement("div");
+    empty.className = "admin-empty-row";
+    empty.textContent = t("admin.suggestions.empty");
+    container.appendChild(empty);
+    return;
+  }
+  rows.forEach((s) => {
+    const row = document.createElement("div");
+    row.className = "admin-row";
+    row.innerHTML = `
+      <div class="admin-row-main">
+        <div class="admin-row-title">${escapeHtml(s.name)}</div>
+        <div class="admin-row-sub">${escapeHtml(s.category || "")}</div>
+      </div>
+      <div class="admin-row-actions">
+        <button type="button" class="admin-icon-btn is-danger" data-action="dismiss" title="${t("admin.delete")}">
+          <svg class="icon"><use href="#i-trash"/></svg>
+        </button>
+      </div>
+    `;
+    row.querySelector('[data-action="dismiss"]').addEventListener("click", async () => {
+      const { error } = await supabase.from("suggestions").delete().eq("id", s.id);
+      if (error) {
+        showToast(error.message || t("admin.loadError"));
+        return;
+      }
+      loadSuggestions();
+    });
+    container.appendChild(row);
+  });
+}
+
+/* =============================================================
+   The Clash — admin sets the current round
+   ============================================================= */
+async function loadClash() {
+  const { data } = await supabase
+    .from("clash_rounds")
+    .select("*")
+    .eq("is_active", true)
+    .order("created_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  if (data) {
+    el.clashTitleFr.value = data.title_fr || "";
+    el.clashTitleEn.value = data.title_en || "";
+    el.clashItemAName.value = data.item_a_name || "";
+    el.clashItemBName.value = data.item_b_name || "";
+    el.clashItemAImage.value = data.item_a_image_url || "";
+    el.clashItemBImage.value = data.item_b_image_url || "";
+  }
+}
+
+el.clashForm?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  // Only one active round at a time: deactivate any existing ones,
+  // then insert the new round as the active one.
+  await supabase.from("clash_rounds").update({ is_active: false }).eq("is_active", true);
+
+  const { error } = await supabase.from("clash_rounds").insert({
+    title_fr: el.clashTitleFr.value.trim(),
+    title_en: el.clashTitleEn.value.trim(),
+    item_a_name: el.clashItemAName.value.trim(),
+    item_a_image_url: el.clashItemAImage.value.trim() || null,
+    item_b_name: el.clashItemBName.value.trim(),
+    item_b_image_url: el.clashItemBImage.value.trim() || null,
+    is_active: true,
+  });
+
+  if (error) {
+    showToast(error.message || t("admin.loadError"));
+    return;
+  }
+  showToast(t("admin.saved"));
+});
 
 checkAccessAndInit();

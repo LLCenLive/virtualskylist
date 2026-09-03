@@ -32,6 +32,7 @@
     <symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></symbol>
     <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></symbol>
     <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/></symbol>
   </defs>
 </svg>
 
@@ -46,6 +47,7 @@
       <a href="index.html"><svg class="icon"><use href="#i-home"/></svg><span data-i18n="nav.home">Accueil</span></a>
       <a href="tier-lists.html"><svg class="icon"><use href="#i-list"/></svg><span data-i18n="nav.tierlists">Tier Lists</span></a>
       <a href="trends.html"><svg class="icon"><use href="#i-trending"/></svg><span data-i18n="nav.trends">Tendances</span></a>
+      <a href="the-clash.html"><svg class="icon"><use href="#i-flame"/></svg><span data-i18n="nav.clash">The Clash</span></a>
       <a href="community.html"><svg class="icon"><use href="#i-users"/></svg><span data-i18n="nav.community">Communauté</span></a>
       <a href="index.html#suggest"><svg class="icon"><use href="#i-bulb"/></svg><span data-i18n="nav.suggest">Proposer du contenu</span></a>
     </nav>
@@ -102,7 +104,14 @@
 
     <!-- Main CRUD UI, shown only once confirmed admin -->
     <div id="admin-content" style="display:none">
-      <div class="panel">
+      <div class="filter-tabs" data-group="admin-section" style="margin-bottom:18px">
+        <button class="filter-tab is-active" type="button" data-filter="tierlists" data-i18n="admin.nav.tierlists">Tier lists</button>
+        <button class="filter-tab" type="button" data-filter="suggestions" data-i18n="admin.nav.suggestions">Suggestions</button>
+        <button class="filter-tab" type="button" data-filter="clash" data-i18n="admin.nav.clash">The Clash</button>
+      </div>
+
+      <!-- ---- Tier lists panel ---- -->
+      <div class="panel admin-section" data-section="tierlists">
         <div class="panel-head">
           <div class="section-title"><svg class="icon"><use href="#i-list"/></svg><span data-i18n="admin.tierlists.title">Tier lists</span></div>
           <button type="button" class="btn btn-outline btn-sm" id="admin-add-tl-btn">
@@ -118,7 +127,17 @@
               <label class="field-label" for="tl-form-slug" data-i18n="admin.field.slug">Identifiant (slug)</label>
               <input class="field" id="tl-form-slug" required pattern="[a-z0-9\-]+" placeholder="ex. meilleurs-helicopteres">
             </div>
-            <div></div>
+            <div>
+              <label class="field-label" for="tl-form-category" data-i18n="admin.field.category">Catégorie</label>
+              <select class="field" id="tl-form-category">
+                <option value="airliners" data-i18n="suggest.opt.airliners">Avions de ligne</option>
+                <option value="airlines" data-i18n="tierlists.filter.airlines">Compagnies aériennes</option>
+                <option value="ga" data-i18n="suggest.opt.ga">Aviation générale</option>
+                <option value="airports" data-i18n="suggest.opt.airports">Aéroports</option>
+                <option value="liveries" data-i18n="suggest.opt.liveries">Livrées</option>
+                <option value="addons" data-i18n="suggest.opt.addons">Add-ons simulateur</option>
+              </select>
+            </div>
             <div>
               <label class="field-label" for="tl-form-title-fr" data-i18n="admin.field.titleFr">Titre (FR)</label>
               <input class="field" id="tl-form-title-fr" required>
@@ -135,6 +154,10 @@
               <label class="field-label" for="tl-form-desc-en" data-i18n="admin.field.descEn">Description (EN)</label>
               <input class="field" id="tl-form-desc-en">
             </div>
+            <div class="field-full">
+              <label class="field-label" for="tl-form-image" data-i18n="admin.field.imageUrl">URL de l'image (optionnel)</label>
+              <input class="field" id="tl-form-image" type="url" placeholder="https://…">
+            </div>
           </div>
           <div class="builder-actions" style="margin-top:14px">
             <button type="button" class="btn btn-outline" id="tl-form-cancel" data-i18n="admin.cancel">Annuler</button>
@@ -143,6 +166,55 @@
         </form>
 
         <div class="admin-list" id="admin-tl-list"></div>
+      </div>
+
+      <!-- ---- Suggestions panel ---- -->
+      <div class="panel admin-section" data-section="suggestions" style="display:none">
+        <div class="panel-head">
+          <div class="section-title"><svg class="icon"><use href="#i-bulb"/></svg><span data-i18n="admin.suggestions.title">Suggestions de la communauté</span></div>
+        </div>
+        <h3 style="font-size:14px;margin-bottom:10px" data-i18n="admin.suggestions.tierlists">Tier lists proposées</h3>
+        <div class="admin-list" id="admin-suggest-tierlists" style="margin-bottom:24px"></div>
+        <h3 style="font-size:14px;margin-bottom:10px" data-i18n="admin.suggestions.aircraft">Avions proposés</h3>
+        <div class="admin-list" id="admin-suggest-aircraft"></div>
+      </div>
+
+      <!-- ---- The Clash panel ---- -->
+      <div class="panel admin-section" data-section="clash" style="display:none">
+        <div class="panel-head">
+          <div class="section-title"><svg class="icon"><use href="#i-trending"/></svg><span data-i18n="admin.clash.current">Round actuel</span></div>
+        </div>
+        <form id="clash-form">
+          <div class="admin-form-grid">
+            <div>
+              <label class="field-label" for="clash-title-fr" data-i18n="admin.field.titleFr">Titre (FR)</label>
+              <input class="field" id="clash-title-fr" required>
+            </div>
+            <div>
+              <label class="field-label" for="clash-title-en" data-i18n="admin.field.titleEn">Titre (EN)</label>
+              <input class="field" id="clash-title-en" required>
+            </div>
+            <div>
+              <label class="field-label" for="clash-item-a-name" data-i18n="admin.field.itemA">Concurrent A</label>
+              <input class="field" id="clash-item-a-name" required>
+            </div>
+            <div>
+              <label class="field-label" for="clash-item-b-name" data-i18n="admin.field.itemB">Concurrent B</label>
+              <input class="field" id="clash-item-b-name" required>
+            </div>
+            <div>
+              <label class="field-label" for="clash-item-a-image" data-i18n="admin.field.imageUrl">URL de l'image (optionnel)</label>
+              <input class="field" id="clash-item-a-image" type="url" placeholder="https://…">
+            </div>
+            <div>
+              <label class="field-label" for="clash-item-b-image" data-i18n="admin.field.imageUrl">URL de l'image (optionnel)</label>
+              <input class="field" id="clash-item-b-image" type="url" placeholder="https://…">
+            </div>
+          </div>
+          <div class="builder-actions" style="margin-top:14px">
+            <button type="submit" class="btn btn-primary" data-i18n="admin.clash.publish">Publier ce round</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -155,11 +227,11 @@
       <span class="brand-mark"><svg class="icon"><use href="#i-plane"/></svg></span>
       VirtualSkyList
     </div>
-    <span data-i18n="footer.copyright">© 2026 VirtualSkyList. Tous droits réservés.</span>
     <nav class="footer-links">
-      <a href="#" data-i18n="footer.privacy">Confidentialité</a>
-      <a href="#" data-i18n="footer.terms">Conditions</a>
-      <a href="#" data-i18n="footer.contact">Contact</a>
+      <a href="privacy.html" data-i18n="footer.privacy">Confidentialité</a>
+      <a href="terms.html" data-i18n="footer.terms">Conditions</a>
+      <a href="contact.html" data-i18n="footer.contact">Contact</a>
+      <a href="https://discord.com/invite/wcU7JBCQQH" target="_blank" rel="noopener noreferrer">Discord</a>
     </nav>
   </div>
   <div class="wrap footer-credit">

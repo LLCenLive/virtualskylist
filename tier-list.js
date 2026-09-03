@@ -18,7 +18,10 @@ import { supabase, isConfigured } from "./supabase-config.js";
 const sessionId = crypto.randomUUID();
 
 const TIERS = ["S", "A", "B", "C", "D"];
-const TIER_POINTS = { S: 5, A: 4, B: 3, C: 2, D: 1 };
+const TIER_LABEL_KEYS = {
+  S: "tier.s.label", A: "tier.a.label", B: "tier.b.label",
+  C: "tier.c.label", D: "tier.d.label", unranked: "tier.untested.label",
+};
 
 const params = new URLSearchParams(location.search);
 const slug = params.get("slug") || "avions-de-ligne";
@@ -32,9 +35,9 @@ const el = {
   stateMsg: document.getElementById("state-msg"),
   builder: document.getElementById("builder-layout"),
   board: document.getElementById("tier-board"),
-  hangarZone: document.getElementById("hangar-zone"),
   validateBtn: document.getElementById("validate-btn"),
   resetBtn: document.getElementById("reset-btn"),
+  exportBtn: document.getElementById("export-btn"),
   communityBody: document.getElementById("community-body"),
   communityEmpty: document.getElementById("community-empty"),
 };
@@ -76,24 +79,45 @@ function renderBoardShell() {
     row.className = "tier-row-drop";
     row.dataset.tier = tier;
     row.innerHTML = `
-      <div class="tier-badge">${tier}</div>
+      <div class="tier-badge">
+        <span class="tier-badge-letter">${tier}</span>
+        <span class="tier-badge-label">${t(TIER_LABEL_KEYS[tier])}</span>
+      </div>
       <div class="drop-zone" data-tier="${tier}" role="list" aria-label="Tier ${tier}"></div>
     `;
     el.board.appendChild(row);
   });
+
+  // "Non testé / Untested" — visually part of the board (dashed, muted),
+  // but functionally just another drop zone (tier = 'unranked').
+  const untested = document.createElement("div");
+  untested.className = "tier-row-drop tier-row-untested";
+  untested.dataset.tier = "unranked";
+  untested.innerHTML = `
+    <div class="tier-badge">
+      <span class="tier-badge-label">${t(TIER_LABEL_KEYS.unranked)}</span>
+    </div>
+    <div class="drop-zone" data-tier="unranked" role="list" aria-label="Untested"></div>
+  `;
+  el.board.appendChild(untested);
+}
+
+function refreshBoardLabels() {
+  el.board.querySelectorAll(".tier-row-drop").forEach((row) => {
+    const label = row.querySelector(".tier-badge-label");
+    if (label) label.textContent = t(TIER_LABEL_KEYS[row.dataset.tier]);
+  });
 }
 
 function placeItems(placementsByItemId) {
-  el.hangarZone.innerHTML = "";
   el.board.querySelectorAll(".drop-zone").forEach((z) => (z.innerHTML = ""));
-
   items.forEach((item) => {
     const chip = buildChip(item);
-    const tier = placementsByItemId.get(item.id);
-    const zone = tier
-      ? el.board.querySelector(`.drop-zone[data-tier="${tier}"]`)
-      : el.hangarZone;
-    (zone || el.hangarZone).appendChild(chip);
+    const tier = placementsByItemId.get(item.id) || "unranked";
+    const zone =
+      el.board.querySelector(`.drop-zone[data-tier="${tier}"]`) ||
+      el.board.querySelector('.drop-zone[data-tier="unranked"]');
+    zone.appendChild(chip);
   });
 }
 
@@ -236,7 +260,7 @@ async function loadTierList() {
       .select("item_id, tier")
       .eq("ranking_id", ranking.id);
     (placements || []).forEach((p) => {
-      if (p.tier !== "unranked") placementsByItemId.set(p.item_id, p.tier);
+      placementsByItemId.set(p.item_id, p.tier);
     });
   }
 
@@ -300,6 +324,36 @@ function resetBoard() {
 }
 
 /* =============================================================
+   Export the board as a PNG image
+   ============================================================= */
+async function exportBoardAsPng() {
+  const label = el.exportBtn.querySelector("span");
+  const originalText = label.textContent;
+  el.exportBtn.disabled = true;
+  label.textContent = t("builder.exporting");
+
+  try {
+    const mod = await import("https://esm.sh/html2canvas@1.4.1");
+    const html2canvas = mod.default;
+    const canvas = await html2canvas(el.board, {
+      backgroundColor: "#0e1526",
+      scale: 2,
+      useCORS: true,
+    });
+    const link = document.createElement("a");
+    link.download = `${tierListRow?.slug || "tier-list"}.png`;
+    link.href = canvas.toDataURL("image/png");
+    link.click();
+  } catch (err) {
+    console.error(err);
+    showToast(t("builder.error"));
+  } finally {
+    el.exportBtn.disabled = false;
+    label.textContent = originalText;
+  }
+}
+
+/* =============================================================
    Minimal local toast (mirrors script.js's, kept independent
    since this is a separate module script)
    ============================================================= */
@@ -339,6 +393,10 @@ async function init() {
 
 el.validateBtn?.addEventListener("click", submitRanking);
 el.resetBtn?.addEventListener("click", resetBoard);
-document.addEventListener("vsl:langchange", renderMeta);
+el.exportBtn?.addEventListener("click", exportBoardAsPng);
+document.addEventListener("vsl:langchange", () => {
+  renderMeta();
+  refreshBoardLabels();
+});
 
 init();

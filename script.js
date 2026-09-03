@@ -150,11 +150,11 @@
       "builder.saved": "Merci ! Ton classement a été enregistré.",
       "builder.saveError": "L'enregistrement a échoué. Réessaie.",
       "builder.votesSuffix": "votes",
-      "tier.s.label": "Références",
-      "tier.a.label": "Excellents",
-      "tier.b.label": "Solides",
-      "tier.c.label": "Corrects",
-      "tier.d.label": "À éviter",
+      "tier.s.label": "GOTY",
+      "tier.a.label": "Superbe",
+      "tier.b.label": "Cool",
+      "tier.c.label": "Correct",
+      "tier.d.label": "Mauvais",
 
       /* ---- Auth modal ---- */
       "auth.title.signin": "Se connecter",
@@ -197,7 +197,55 @@
       "admin.saved": "Enregistré.",
       "admin.deleted": "Supprimé.",
       "admin.loadError": "Impossible de charger les données.",
-      "admin.noItems": "Aucun élément pour le moment."
+      "admin.noItems": "Aucun élément pour le moment.",
+
+      /* ---- Legal / footer pages ---- */
+      "legal.privacy.title": "Politique de confidentialité",
+      "legal.privacy.p1": "VirtualSkyList est un projet communautaire non commercial. On ne diffuse aucune publicité et on ne vend aucune donnée.",
+      "legal.privacy.p2": "Si tu crées un compte, on stocke ton email et ton mot de passe (chiffré) via Supabase, notre hébergeur de base de données, uniquement pour te permettre de te connecter et de proposer du contenu.",
+      "legal.privacy.p3": "Voter sur une tier list ne nécessite pas de compte : un identifiant anonyme est généré dans ton navigateur pour éviter les votes en double, sans lien avec ton identité.",
+      "legal.privacy.p4": "Pour toute question sur tes données, contacte-nous sur Discord.",
+      "legal.terms.title": "Conditions d’utilisation",
+      "legal.terms.p1": "VirtualSkyList est un site communautaire créé par des passionnés d’aviation et de simulation de vol, sans lien officiel avec les constructeurs, compagnies aériennes ou studios mentionnés sur le site.",
+      "legal.terms.p2": "Les classements reflètent les votes de la communauté et n’engagent pas VirtualSkyList sur la qualité réelle des produits ou services évoqués.",
+      "legal.terms.p3": "Merci de rester respectueux dans tes suggestions et tes échanges avec la communauté. Tout contenu jugé inapproprié pourra être retiré.",
+      "legal.terms.p4": "Ce site est amené à évoluer ; ces conditions pourront être mises à jour.",
+      "legal.contact.title": "Contact",
+      "legal.contact.p1": "La meilleure façon de nous joindre, c’est notre serveur Discord.",
+      "legal.contact.cta": "Rejoindre le Discord",
+
+      /* ---- Suggestions ---- */
+      "suggest.needLogin": "Connecte-toi pour proposer du contenu.",
+      "admin.nav.suggestions": "Suggestions",
+      "admin.suggestions.title": "Suggestions de la communauté",
+      "admin.suggestions.tierlists": "Tier lists proposées",
+      "admin.suggestions.aircraft": "Avions proposés",
+      "admin.suggestions.empty": "Aucune suggestion pour le moment.",
+      "admin.nav.tierlists": "Tier lists",
+      "admin.nav.clash": "The Clash",
+
+      /* ---- Tier board (builder) ---- */
+      "tier.untested.label": "Non testé",
+      "builder.export": "Exporter en PNG",
+      "builder.exporting": "Génération…",
+
+      /* ---- The Clash ---- */
+      "nav.clash": "The Clash",
+      "clash.page.title": "The Clash",
+      "clash.page.sub": "Chaque semaine, deux avions s’affrontent. Vote pour ton préféré !",
+      "clash.vs": "VS",
+      "clash.vote": "Voter",
+      "clash.voted": "Merci pour ton vote !",
+      "clash.results": "Résultats",
+      "clash.empty": "Pas de clash actif pour le moment.",
+      "clash.loadError": "Impossible de charger le clash.",
+      "admin.clash.title": "The Clash",
+      "admin.clash.current": "Round actuel",
+      "admin.field.itemA": "Concurrent A",
+      "admin.field.itemB": "Concurrent B",
+      "admin.field.imageUrl": "URL de l’image (optionnel)",
+      "admin.clash.publish": "Publier ce round",
+      "admin.field.category": "Catégorie"
     },
 
     en: {
@@ -345,11 +393,11 @@
       "builder.saved": "Thanks! Your ranking was saved.",
       "builder.saveError": "Saving failed. Please try again.",
       "builder.votesSuffix": "votes",
-      "tier.s.label": "Legendary",
-      "tier.a.label": "Excellent",
-      "tier.b.label": "Solid",
-      "tier.c.label": "Decent",
-      "tier.d.label": "Avoid",
+      "tier.s.label": "GOTY",
+      "tier.a.label": "Superb",
+      "tier.b.label": "Cool",
+      "tier.c.label": "Correct",
+      "tier.d.label": "Bad",
 
       /* ---- Auth modal ---- */
       "auth.title.signin": "Sign In",
@@ -392,7 +440,55 @@
       "admin.saved": "Saved.",
       "admin.deleted": "Deleted.",
       "admin.loadError": "Couldn't load data.",
-      "admin.noItems": "No items yet."
+      "admin.noItems": "No items yet.",
+
+      /* ---- Legal / footer pages ---- */
+      "legal.privacy.title": "Privacy Policy",
+      "legal.privacy.p1": "VirtualSkyList is a non-commercial community project. We don't run ads and we don't sell any data.",
+      "legal.privacy.p2": "If you create an account, we store your email and password (encrypted) via Supabase, our database host, solely so you can sign in and suggest content.",
+      "legal.privacy.p3": "Voting on a tier list doesn't require an account: an anonymous id is generated in your browser to prevent duplicate votes, with no link to your identity.",
+      "legal.privacy.p4": "For any question about your data, reach out to us on Discord.",
+      "legal.terms.title": "Terms of Use",
+      "legal.terms.p1": "VirtualSkyList is a community site made by aviation and flight-sim enthusiasts, with no official link to the manufacturers, airlines, or studios mentioned on the site.",
+      "legal.terms.p2": "Rankings reflect community votes and don't represent VirtualSkyList's own assessment of the actual quality of the products or services mentioned.",
+      "legal.terms.p3": "Please stay respectful in your suggestions and in your exchanges with the community. Content deemed inappropriate may be removed.",
+      "legal.terms.p4": "This site is a work in progress; these terms may be updated over time.",
+      "legal.contact.title": "Contact",
+      "legal.contact.p1": "The best way to reach us is our Discord server.",
+      "legal.contact.cta": "Join the Discord",
+
+      /* ---- Suggestions ---- */
+      "suggest.needLogin": "Sign in to suggest content.",
+      "admin.nav.suggestions": "Suggestions",
+      "admin.suggestions.title": "Community suggestions",
+      "admin.suggestions.tierlists": "Suggested tier lists",
+      "admin.suggestions.aircraft": "Suggested aircraft",
+      "admin.suggestions.empty": "No suggestions yet.",
+      "admin.nav.tierlists": "Tier Lists",
+      "admin.nav.clash": "The Clash",
+
+      /* ---- Tier board (builder) ---- */
+      "tier.untested.label": "Untested",
+      "builder.export": "Export as PNG",
+      "builder.exporting": "Generating…",
+
+      /* ---- The Clash ---- */
+      "nav.clash": "The Clash",
+      "clash.page.title": "The Clash",
+      "clash.page.sub": "Every week, two aircraft go head to head. Vote for your favorite!",
+      "clash.vs": "VS",
+      "clash.vote": "Vote",
+      "clash.voted": "Thanks for voting!",
+      "clash.results": "Results",
+      "clash.empty": "No active clash right now.",
+      "clash.loadError": "Couldn't load the clash.",
+      "admin.clash.title": "The Clash",
+      "admin.clash.current": "Current round",
+      "admin.field.itemA": "Contender A",
+      "admin.field.itemB": "Contender B",
+      "admin.field.imageUrl": "Image URL (optional)",
+      "admin.clash.publish": "Publish this round",
+      "admin.field.category": "Category"
     }
   };
 
@@ -515,24 +611,6 @@
   });
 
   /* =======================================================
-     Trending carousel dots (visual only)
-     ======================================================= */
-  const dots = Array.from(document.querySelectorAll(".carousel-dots .dot"));
-  let activeDot = 0;
-
-  function setActiveDot(index) {
-    dots[activeDot]?.classList.remove("is-active");
-    activeDot = (index + dots.length) % dots.length;
-    dots[activeDot]?.classList.add("is-active");
-  }
-
-  dots.forEach((dot, i) => dot.addEventListener("click", () => setActiveDot(i)));
-  document.querySelector('.carousel-nav[aria-label="Previous"]')
-    ?.addEventListener("click", () => setActiveDot(activeDot - 1));
-  document.querySelector('.carousel-nav[aria-label="Next"]')
-    ?.addEventListener("click", () => setActiveDot(activeDot + 1));
-
-  /* =======================================================
      Active nav link on scroll (homepage only — maps in-page
      sections to their matching header link by href)
      ======================================================= */
@@ -576,50 +654,6 @@
       });
     });
   });
-
-  /* =======================================================
-     Tier Lists browse page: search + category filter
-     ======================================================= */
-  const browseGrid = document.querySelector(".browse-grid");
-  if (browseGrid) {
-    const cards = Array.from(browseGrid.querySelectorAll(".list-card"));
-    const emptyState = document.querySelector(".empty-state");
-    const searchInput = document.querySelector(".search-field input");
-    const categoryTabs = document.querySelector('.filter-tabs[data-group="category"]');
-    let activeCategory = "all";
-
-    function refreshGrid() {
-      const query = (searchInput?.value || "").trim().toLowerCase();
-      let visibleCount = 0;
-      cards.forEach((card) => {
-        const matchesCategory = activeCategory === "all" || card.dataset.category === activeCategory;
-        const title = card.querySelector("h3")?.textContent.toLowerCase() || "";
-        const matchesQuery = !query || title.includes(query);
-        const show = matchesCategory && matchesQuery;
-        card.classList.toggle("is-hidden", !show);
-        if (show) visibleCount += 1;
-      });
-      if (emptyState) emptyState.style.display = visibleCount ? "none" : "flex";
-    }
-
-    categoryTabs?.addEventListener("tabchange", (e) => {
-      activeCategory = e.detail.value;
-      refreshGrid();
-    });
-    searchInput?.addEventListener("input", refreshGrid);
-
-    // Allow other pages to deep-link into a pre-filtered category,
-    // e.g. tier-lists.html?filter=addons
-    const initialFilter = new URLSearchParams(location.search).get("filter");
-    const initialTab = initialFilter && categoryTabs?.querySelector(`.filter-tab[data-filter="${initialFilter}"]`);
-    if (initialTab) {
-      categoryTabs.querySelectorAll(".filter-tab").forEach((tb) => tb.classList.remove("is-active"));
-      initialTab.classList.add("is-active");
-      activeCategory = initialFilter;
-    }
-
-    refreshGrid();
-  }
 
   applyTranslations(getLangFromUrl());
 })();
