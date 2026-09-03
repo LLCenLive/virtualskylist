@@ -86,13 +86,9 @@
           <span data-i18n="hero.title2">Découvrez les</span><br>
           <span class="accent" data-i18n="hero.title3">favoris de la communauté.</span>
         </h1>
-        <p class="hero-sub" data-i18n="hero.sub">Créez des tier lists pour les avions, compagnies aériennes, aéroports et add-ons de simulateur de vol. Les données de notre communauté révèlent les favoris et les valeurs montantes.</p>
+        <p class="hero-sub" data-i18n="hero.sub">Vote pour les avions, compagnies aériennes, aéroports et add-ons de simulateur de vol. Les données de notre communauté révèlent les favoris et les valeurs montantes.</p>
         <div class="hero-actions">
-          <button type="button" class="btn btn-primary" data-toast="create">
-            <svg class="icon"><use href="#i-plus-circle"/></svg>
-            <span data-i18n="hero.cta1">Créer une tier list</span>
-          </button>
-          <a href="#trending" class="btn btn-outline">
+          <a href="#trending" class="btn btn-primary">
             <svg class="icon"><use href="#i-compass"/></svg>
             <span data-i18n="hero.cta2">Explorer les classements</span>
           </a>
@@ -113,52 +109,16 @@
           <div>
             <span class="featured-label" data-i18n="featured.label">TIER LIST EN VEDETTE</span>
             <h2 class="featured-title" data-i18n="featured.title">Avions de ligne commerciaux</h2>
-            <p class="featured-meta">
-              <span data-i18n="featured.meta.by">Créée par</span>&nbsp;<a href="#">AeroRanker</a>&nbsp;·&nbsp;<svg class="icon"><use href="#i-users"/></svg>&nbsp;<span data-i18n="featured.meta.votes">12,4k votes</span>
-            </p>
           </div>
-          <a href="#" class="btn btn-outline btn-sm">
-            <span data-i18n="featured.view">Voir la tier list complète</span>
-            <svg class="icon"><use href="#i-external"/></svg>
+        </div>
+
+        <div class="featured-empty">
+          <svg class="icon"><use href="#i-plane"/></svg>
+          <p data-i18n="featured.empty.body">Personne n’a encore classé cette tier list. Sois le premier à voter et à faire émerger le classement de la communauté.</p>
+          <a href="tier-list.html?slug=avions-de-ligne" class="btn btn-primary btn-sm">
+            <svg class="icon"><use href="#i-check-circle"/></svg>
+            <span data-i18n="featured.empty.cta">Commencer le classement</span>
           </a>
-        </div>
-
-        <div class="tier-table">
-          <div class="tier-row" data-tier="S">
-            <div class="tier-badge">S</div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#3a2130"><svg class="icon" style="color:#e8a2ac"><use href="#i-plane"/></svg></span><span>A350</span></div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#1c2a44"><svg class="icon" style="color:#8fb3ec"><use href="#i-plane"/></svg></span><span>B747</span></div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#2b2140"><svg class="icon" style="color:#c3a2e8"><use href="#i-plane"/></svg></span><span>Concorde</span></div>
-          </div>
-          <div class="tier-row" data-tier="A">
-            <div class="tier-badge">A</div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#1c2a44"><svg class="icon" style="color:#8fb3ec"><use href="#i-plane"/></svg></span><span>A330neo</span></div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#20302a"><svg class="icon" style="color:#8fd6b0"><use href="#i-plane"/></svg></span><span>B787</span></div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#3a2130"><svg class="icon" style="color:#e8a2ac"><use href="#i-plane"/></svg></span><span>A380</span></div>
-          </div>
-          <div class="tier-row" data-tier="B">
-            <div class="tier-badge">B</div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#1c2a44"><svg class="icon" style="color:#8fb3ec"><use href="#i-plane"/></svg></span><span>A320neo</span></div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#20302a"><svg class="icon" style="color:#8fd6b0"><use href="#i-plane"/></svg></span><span>B777</span></div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#20302a"><svg class="icon" style="color:#8fd6b0"><use href="#i-plane"/></svg></span><span>E190-E2</span></div>
-          </div>
-          <div class="tier-row" data-tier="C">
-            <div class="tier-badge">C</div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#33301b"><svg class="icon" style="color:#e0d68f"><use href="#i-plane"/></svg></span><span>C172</span></div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#1c2a44"><svg class="icon" style="color:#8fb3ec"><use href="#i-plane"/></svg></span><span>CRJ 700</span></div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#33301b"><svg class="icon" style="color:#e0d68f"><use href="#i-plane"/></svg></span><span>Dash 8 Q400</span></div>
-          </div>
-          <div class="tier-row" data-tier="D">
-            <div class="tier-badge">D</div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#33301b"><svg class="icon" style="color:#e0d68f"><use href="#i-plane"/></svg></span><span>TBM 850</span></div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#1c2a44"><svg class="icon" style="color:#8fb3ec"><use href="#i-plane"/></svg></span><span>MD-11</span></div>
-            <div class="tier-item"><span class="tier-thumb" style="--thumb-bg:#2b2140"><svg class="icon" style="color:#c3a2e8"><use href="#i-plane"/></svg></span><span>An-225</span></div>
-          </div>
-        </div>
-
-        <div class="featured-foot">
-          <span><svg class="icon"><use href="#i-check-circle"/></svg><span data-i18n="featured.rankedby">Classé par les votes de la communauté</span></span>
-          <span data-i18n="featured.updated">Mis à jour il y a 2h</span>
         </div>
       </div>
     </div>
@@ -176,53 +136,53 @@
         </div>
 
         <div class="trending-grid">
-          <article class="list-card">
+          <a class="list-card" href="tier-list.html?slug=avions-de-ligne">
             <div class="list-card-media" style="--tile-bg: linear-gradient(135deg, #14335c, #0a1730)">
               <span class="media-icon-badge" style="color:#5fa8ff"><svg class="icon"><use href="#i-plane"/></svg></span>
               <svg class="icon" style="color:#dfeaff"><use href="#i-plane" width="40" height="40"/></svg>
             </div>
             <div class="list-card-body">
               <h3 data-i18n="card1.title">Meilleurs avions de ligne</h3>
-              <div class="list-card-votes" data-i18n="card1.votes">18,7k votes</div>
+              <div class="list-card-votes" data-i18n="votes.empty">Pas encore de votes</div>
               <p data-i18n="card1.desc">Classement des meilleurs avions de ligne commerciaux de tous les temps.</p>
             </div>
-          </article>
+          </a>
 
-          <article class="list-card">
+          <a class="list-card" href="tier-lists.html?filter=addons">
             <div class="list-card-media" style="--tile-bg: linear-gradient(135deg, #3a2160, #150c30)">
               <span class="media-icon-badge" style="color:#c3a2e8"><svg class="icon"><use href="#i-puzzle"/></svg></span>
               <svg class="icon" style="color:#e8dcff"><use href="#i-puzzle" width="38" height="38"/></svg>
             </div>
             <div class="list-card-body">
               <h3 data-i18n="card2.title">Meilleurs add-ons MSFS</h3>
-              <div class="list-card-votes" data-i18n="card2.votes">15,2k votes</div>
+              <div class="list-card-votes" data-i18n="votes.empty">Pas encore de votes</div>
               <p data-i18n="card2.desc">Avions payware et studios pour MSFS 2024 : PMDG, Fenix, iniBuilds, ToLiss, A2A, Just Flight, Carenado et plus.</p>
             </div>
-          </article>
+          </a>
 
-          <article class="list-card">
+          <a class="list-card" href="tier-list.html?slug=aeroports">
             <div class="list-card-media" style="--tile-bg: linear-gradient(135deg, #0e3a4a, #081a24)">
               <span class="media-icon-badge" style="color:#5fd0e0"><svg class="icon"><use href="#i-pin"/></svg></span>
               <svg class="icon" style="color:#cdf3f8"><use href="#i-pin" width="38" height="38"/></svg>
             </div>
             <div class="list-card-body">
               <h3 data-i18n="card3.title">Meilleurs aéroports</h3>
-              <div class="list-card-votes" data-i18n="card3.votes">12,3k votes</div>
+              <div class="list-card-votes" data-i18n="votes.empty">Pas encore de votes</div>
               <p data-i18n="card3.desc">Les meilleurs aéroports du monde, pour l'exploitation comme pour l'expérience.</p>
             </div>
-          </article>
+          </a>
 
-          <article class="list-card">
+          <a class="list-card" href="tier-list.html?slug=livrees">
             <div class="list-card-media" style="--tile-bg: linear-gradient(135deg, #5c3a14, #2c1808)">
               <span class="media-icon-badge" style="color:#f0b96a"><svg class="icon"><use href="#i-palette"/></svg></span>
               <svg class="icon" style="color:#ffe6c2"><use href="#i-palette" width="38" height="38"/></svg>
             </div>
             <div class="list-card-body">
               <h3 data-i18n="card4.title">Meilleures livrées</h3>
-              <div class="list-card-votes" data-i18n="card4.votes">9,8k votes</div>
+              <div class="list-card-votes" data-i18n="votes.empty">Pas encore de votes</div>
               <p data-i18n="card4.desc">Les livrées les plus iconiques et les plus belles de l'aviation.</p>
             </div>
-          </article>
+          </a>
         </div>
 
         <div class="carousel-dots">
@@ -241,16 +201,12 @@
           <div class="panel-head">
             <div class="section-title"><svg class="icon"><use href="#i-trophy"/></svg><span data-i18n="community.title">TOP AVIONS DE LA COMMUNAUTÉ</span></div>
           </div>
-          <div class="rank-list">
-            <div class="rank-row"><span class="rank-num">1</span><span class="rank-thumb" style="--thumb-bg:#3a2130"><svg class="icon" style="color:#e8a2ac"><use href="#i-plane"/></svg></span><span class="rank-name">A350</span><span class="rank-score">9.48</span></div>
-            <div class="rank-row"><span class="rank-num">2</span><span class="rank-thumb" style="--thumb-bg:#1c2a44"><svg class="icon" style="color:#8fb3ec"><use href="#i-plane"/></svg></span><span class="rank-name">B747</span><span class="rank-score">9.21</span></div>
-            <div class="rank-row"><span class="rank-num">3</span><span class="rank-thumb" style="--thumb-bg:#1c2a44"><svg class="icon" style="color:#8fb3ec"><use href="#i-plane"/></svg></span><span class="rank-name">A320neo</span><span class="rank-score">8.93</span></div>
-            <div class="rank-row"><span class="rank-num">4</span><span class="rank-thumb" style="--thumb-bg:#33301b"><svg class="icon" style="color:#e0d68f"><use href="#i-plane"/></svg></span><span class="rank-name">C172</span><span class="rank-score">8.01</span></div>
-            <div class="rank-row"><span class="rank-num">5</span><span class="rank-thumb" style="--thumb-bg:#33301b"><svg class="icon" style="color:#e0d68f"><use href="#i-plane"/></svg></span><span class="rank-name">TBM 850</span><span class="rank-score">7.62</span></div>
+          <div class="panel-empty">
+            <svg class="icon"><use href="#i-trophy"/></svg>
+            <p data-i18n="community.empty">Aucun vote pour le moment. Sois le premier à classer un avion !</p>
           </div>
-          <div class="panel-foot-note">
-            <span data-i18n="community.based">Basé sur 50k+ votes de la communauté</span>
-            <a href="#" class="see-all" data-i18n="community.viewall">Voir tous les classements</a>
+          <div class="panel-foot-note" style="justify-content:center">
+            <a href="tier-lists.html" class="see-all" data-i18n="community.viewall">Voir tous les classements</a>
           </div>
         </div>
 
@@ -258,15 +214,9 @@
           <div class="panel-head">
             <div class="section-title"><svg class="icon"><use href="#i-trending"/></svg><span data-i18n="now.title">TENDANCES DU MOMENT</span></div>
           </div>
-          <div class="rank-list">
-            <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#2b2140"><svg class="icon" style="color:#c3a2e8"><use href="#i-plane"/></svg></span><span><span class="trend-name">Concorde</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>23</span></div>
-            <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#20302a"><svg class="icon" style="color:#8fd6b0"><use href="#i-plane"/></svg></span><span><span class="trend-name">E190-E2</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>18</span></div>
-            <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#1c2a44"><svg class="icon" style="color:#8fb3ec"><use href="#i-plane"/></svg></span><span><span class="trend-name">iniBuilds A310</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>16</span></div>
-            <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#0e3a4a"><svg class="icon" style="color:#5fd0e0"><use href="#i-pin"/></svg></span><span><span class="trend-name">KSFO</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>14</span></div>
-            <div class="trend-row"><span class="rank-thumb" style="--thumb-bg:#33301b"><svg class="icon" style="color:#e0d68f"><use href="#i-plane"/></svg></span><span><span class="trend-name">777-300ER</span><div class="trend-sub" data-i18n="now.thisweek">Cette semaine</div></span><span class="trend-up"><svg class="icon"><use href="#i-arrow-up"/></svg>12</span></div>
-          </div>
-          <div class="panel-foot-note">
-            <span data-i18n="now.fastmovers">Mouvements rapides de popularité</span>
+          <div class="panel-empty">
+            <svg class="icon"><use href="#i-trending"/></svg>
+            <p data-i18n="now.empty">Pas encore de tendances à afficher.</p>
           </div>
         </div>
       </div>

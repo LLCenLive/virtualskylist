@@ -17,44 +17,37 @@
       "hero.title1": "Classez l’aviation.",
       "hero.title2": "Découvrez les",
       "hero.title3": "favoris de la communauté.",
-      "hero.sub": "Créez des tier lists pour les avions, compagnies aériennes, aéroports et add-ons de simulateur de vol. Les données de notre communauté révèlent les favoris et les valeurs montantes.",
-      "hero.cta1": "Créer une tier list",
+      "hero.sub": "Vote pour les avions, compagnies aériennes, aéroports et add-ons de simulateur de vol. Les données de notre communauté révèlent les favoris et les valeurs montantes.",
       "hero.cta2": "Explorer les classements",
 
       "featured.label": "Tier list en vedette",
       "featured.title": "Avions de ligne commerciaux",
-      "featured.meta.by": "Créée par",
-      "featured.meta.votes": "12,4k votes",
-      "featured.view": "Voir la tier list complète",
-      "featured.rankedby": "Classé par les votes de la communauté",
-      "featured.updated": "Mis à jour il y a 2h",
+      "featured.empty.body": "Personne n’a encore classé cette tier list. Sois le premier à voter et à faire émerger le classement de la communauté.",
+      "featured.empty.cta": "Commencer le classement",
 
       "trending.title": "Tier lists tendance",
       "trending.viewall": "Voir tout",
 
       "card1.title": "Meilleurs avions de ligne",
-      "card1.votes": "18,7k votes",
       "card1.desc": "Classement des meilleurs avions de ligne commerciaux de tous les temps.",
 
       "card2.title": "Meilleurs add-ons MSFS",
-      "card2.votes": "15,2k votes",
       "card2.desc": "Avions payware et studios pour MSFS 2024\u00a0: PMDG, Fenix, iniBuilds, ToLiss, A2A, Just Flight, Carenado et plus.",
 
       "card3.title": "Meilleurs aéroports",
-      "card3.votes": "12,3k votes",
       "card3.desc": "Les meilleurs aéroports du monde, pour l’exploitation comme pour l’expérience.",
 
       "card4.title": "Meilleures livrées",
-      "card4.votes": "9,8k votes",
       "card4.desc": "Les livrées les plus iconiques et les plus belles de l’aviation.",
 
+      "votes.empty": "Pas encore de votes",
+
       "community.title": "Top avions de la communauté",
-      "community.based": "Basé sur 50k+ votes de la communauté",
+      "community.empty": "Aucun vote pour le moment. Sois le premier à classer un avion !",
       "community.viewall": "Voir tous les classements",
 
       "now.title": "Tendances du moment",
-      "now.thisweek": "Cette semaine",
-      "now.fastmovers": "Mouvements rapides de popularité",
+      "now.empty": "Pas encore de tendances à afficher.",
 
       "suggest.eyebrow": "Proposer du contenu",
       "suggest.title": "Aidez à façonner VirtualSkyList",
@@ -83,13 +76,12 @@
       "footer.terms": "Conditions",
       "footer.contact": "Contact",
 
-      "toast.create": "Bientôt disponible : la création de tier list arrive !",
       "toast.tierlist": "Merci ! Ta suggestion de tier list a bien été envoyée.",
       "toast.aircraft": "Merci ! Ta suggestion d’avion a bien été envoyée.",
 
       /* ---- Tier Lists page ---- */
       "tierlists.page.title": "Toutes les tier lists",
-      "tierlists.page.sub": "Explore les classements de la communauté ou lance-toi dans un nouveau classement.",
+      "tierlists.page.sub": "Explore les classements de la communauté et vote pour tes favoris.",
       "tierlists.search.placeholder": "Rechercher une tier list…",
       "tierlists.filter.all": "Tout",
       "tierlists.filter.airliners": "Avions de ligne",
@@ -102,60 +94,46 @@
       "tierlists.badge.msfs": "MSFS 2024",
 
       "tl.airlines.title": "Meilleures compagnies aériennes",
-      "tl.airlines.votes": "7,5k votes",
       "tl.airlines.desc": "Service, confort et fiabilité\u00a0: le classement des meilleures compagnies aériennes par la communauté.",
 
       "tl.msfsAirliners.title": "Avions de ligne payware — MSFS 2024",
-      "tl.msfsAirliners.votes": "9,4k votes",
       "tl.msfsAirliners.desc": "Onze studios, un seul verdict\u00a0: Fenix, FSLabs, PMDG, iniBuilds, Aerosoft, ToLiss, TFDi, Fokker et plus.",
 
       "tl.msfsGA.title": "Aviation générale payware — MSFS 2024",
-      "tl.msfsGA.votes": "6,1k votes",
       "tl.msfsGA.desc": "Monomoteurs et bimoteurs payware\u00a0: A2A, BlackSquare, Just Flight, Carenado, Milviz, SimWorks Studios et plus.",
 
       "tl.msfsStudios.title": "Studios payware & freeware — MSFS 2024",
-      "tl.msfsStudios.votes": "8,3k votes",
       "tl.msfsStudios.desc": "Vingt éditeurs, tous segments confondus\u00a0: liners, régional, GA, hélico, warbirds.",
 
       /* ---- Trends page ---- */
       "trends.page.title": "Tendances",
-      "trends.page.sub": "Ce qui grimpe (et ce qui chute) dans les classements de la communauté cette semaine.",
+      "trends.page.sub": "Ce qui grimpe (et ce qui chute) dans les classements de la communauté.",
       "trends.range.week": "Cette semaine",
       "trends.range.month": "Ce mois",
       "trends.range.all": "Toujours",
       "trends.podium.title": "Top 3 de la semaine",
+      "trends.podium.empty": "Pas encore de classement cette semaine.",
       "trends.risers.title": "Plus fortes progressions",
+      "trends.risers.empty": "Aucune progression pour le moment.",
       "trends.fallers.title": "Plus fortes baisses",
-      "trends.chart.title": "Activité de vote — 7 derniers jours",
-      "day.mon": "Lun", "day.tue": "Mar", "day.wed": "Mer", "day.thu": "Jeu",
-      "day.fri": "Ven", "day.sat": "Sam", "day.sun": "Dim",
+      "trends.fallers.empty": "Aucune baisse pour le moment.",
+      "trends.chart.title": "Activité de vote",
+      "trends.chart.empty": "Pas encore de données de vote.",
 
       /* ---- Community page ---- */
       "community.page.title": "Communauté",
       "community.page.sub": "Découvre les pilotes qui façonnent VirtualSkyList.",
       "community.seeTrends": "Voir les tendances",
-      "stat.members.value": "8 400+",
       "stat.members.label": "Membres actifs",
-      "stat.lists.value": "1 260+",
-      "stat.lists.label": "Tier lists créées",
-      "stat.votes.value": "50k+",
+      "stat.lists.label": "Tier lists disponibles",
       "stat.votes.label": "Votes total",
-      "stat.aircraft.value": "640+",
       "stat.aircraft.label": "Avions référencés",
 
       "leaderboard.title": "Meilleurs contributeurs",
-      "lb.row1.role": "Créateur de tier lists", "lb.row1.score": "2 840 pts",
-      "lb.row2.role": "Votant assidu", "lb.row2.score": "1 920 pts",
-      "lb.row3.role": "Créateur de tier lists", "lb.row3.score": "1 510 pts",
-      "lb.row4.role": "Votant assidu", "lb.row4.score": "1 180 pts",
-      "lb.row5.role": "Membre actif", "lb.row5.score": "940 pts",
+      "leaderboard.empty": "Aucun contributeur pour le moment.",
 
       "activity.title": "Activité récente",
-      "act1.text": "AeroRanker a mis à jour Avions de ligne commerciaux", "act1.time": "Il y a 2h",
-      "act2.text": "SkyMarshal a voté sur Meilleurs aéroports", "act2.time": "Il y a 4h",
-      "act3.text": "Nouveau membre : RunwayReady", "act3.time": "Il y a 6h",
-      "act4.text": "ILS_Approach a proposé un avion : Boeing 777-8", "act4.time": "Il y a 9h",
-      "act5.text": "HeavyMetalHeli a créé Meilleures livrées", "act5.time": "Il y a 1j",
+      "activity.empty": "Aucune activité récente.",
 
       /* ---- Tier list builder page ---- */
       "builder.validate": "Valider mon classement",
@@ -188,44 +166,37 @@
       "hero.title1": "Rank aviation.",
       "hero.title2": "Discover the",
       "hero.title3": "community's favorites.",
-      "hero.sub": "Create tier lists for aircraft, airlines, airports, and flight sim add-ons. Our community data reveals the overall favorites and biggest risers.",
-      "hero.cta1": "Create a Tier List",
+      "hero.sub": "Vote on aircraft, airlines, airports, and flight sim add-ons. Our community data reveals the overall favorites and biggest risers.",
       "hero.cta2": "Explore Rankings",
 
       "featured.label": "Featured tier list",
       "featured.title": "Commercial Airliners",
-      "featured.meta.by": "Created by",
-      "featured.meta.votes": "12.4K votes",
-      "featured.view": "View Full Tier List",
-      "featured.rankedby": "Ranked by community votes",
-      "featured.updated": "Updated 2h ago",
+      "featured.empty.body": "No one has ranked this tier list yet. Be the first to vote and kick off the community ranking.",
+      "featured.empty.cta": "Start ranking",
 
       "trending.title": "Trending tier lists",
       "trending.viewall": "View all",
 
       "card1.title": "Best Airliners",
-      "card1.votes": "18.7K votes",
       "card1.desc": "Ranking the best commercial airliners of all time.",
 
       "card2.title": "Best MSFS Add-ons",
-      "card2.votes": "15.2K votes",
       "card2.desc": "Payware aircraft and studios for MSFS 2024: PMDG, Fenix, iniBuilds, ToLiss, A2A, Just Flight, Carenado and more.",
 
       "card3.title": "Best Airports",
-      "card3.votes": "12.3K votes",
       "card3.desc": "The world's greatest airports for ops and experience.",
 
       "card4.title": "Best Airline Liveries",
-      "card4.votes": "9.8K votes",
       "card4.desc": "The most iconic and beautiful liveries in aviation.",
 
+      "votes.empty": "No votes yet",
+
       "community.title": "Community top aircraft",
-      "community.based": "Based on 50K+ community votes",
+      "community.empty": "No votes yet. Be the first to rank an aircraft!",
       "community.viewall": "View full rankings",
 
       "now.title": "Trending now",
-      "now.thisweek": "This week",
-      "now.fastmovers": "Fast movers in popularity",
+      "now.empty": "No trends to show yet.",
 
       "suggest.eyebrow": "Suggest content",
       "suggest.title": "Help shape VirtualSkyList",
@@ -254,13 +225,12 @@
       "footer.terms": "Terms",
       "footer.contact": "Contact",
 
-      "toast.create": "Coming soon: tier list creation is on its way!",
       "toast.tierlist": "Thanks! Your tier list suggestion was sent.",
       "toast.aircraft": "Thanks! Your aircraft suggestion was sent.",
 
       /* ---- Tier Lists page ---- */
       "tierlists.page.title": "All Tier Lists",
-      "tierlists.page.sub": "Browse community rankings or start ranking something new.",
+      "tierlists.page.sub": "Browse community rankings and vote for your favorites.",
       "tierlists.search.placeholder": "Search tier lists…",
       "tierlists.filter.all": "All",
       "tierlists.filter.airliners": "Airliners",
@@ -273,60 +243,46 @@
       "tierlists.badge.msfs": "MSFS 2024",
 
       "tl.airlines.title": "Best Airlines",
-      "tl.airlines.votes": "7.5K votes",
       "tl.airlines.desc": "Service, comfort, and reliability: the community's ranking of the best airlines.",
 
       "tl.msfsAirliners.title": "Payware Airliners — MSFS 2024",
-      "tl.msfsAirliners.votes": "9.4K votes",
       "tl.msfsAirliners.desc": "Eleven studios, one verdict: Fenix, FSLabs, PMDG, iniBuilds, Aerosoft, ToLiss, TFDi, Fokker and more.",
 
       "tl.msfsGA.title": "Payware General Aviation — MSFS 2024",
-      "tl.msfsGA.votes": "6.1K votes",
       "tl.msfsGA.desc": "Payware single and twin-engine aircraft: A2A, BlackSquare, Just Flight, Carenado, Milviz, SimWorks Studios and more.",
 
       "tl.msfsStudios.title": "Payware & Freeware Studios — MSFS 2024",
-      "tl.msfsStudios.votes": "8.3K votes",
       "tl.msfsStudios.desc": "Twenty publishers across every segment: liners, regional, GA, helicopters, warbirds.",
 
       /* ---- Trends page ---- */
       "trends.page.title": "Trends",
-      "trends.page.sub": "What's rising (and falling) in community rankings this week.",
+      "trends.page.sub": "What's rising (and falling) in community rankings.",
       "trends.range.week": "This week",
       "trends.range.month": "This month",
       "trends.range.all": "All time",
       "trends.podium.title": "This week's top 3",
+      "trends.podium.empty": "No ranking yet this week.",
       "trends.risers.title": "Biggest risers",
+      "trends.risers.empty": "No risers yet.",
       "trends.fallers.title": "Biggest fallers",
-      "trends.chart.title": "Voting activity — last 7 days",
-      "day.mon": "Mon", "day.tue": "Tue", "day.wed": "Wed", "day.thu": "Thu",
-      "day.fri": "Fri", "day.sat": "Sat", "day.sun": "Sun",
+      "trends.fallers.empty": "No fallers yet.",
+      "trends.chart.title": "Voting activity",
+      "trends.chart.empty": "No voting data yet.",
 
       /* ---- Community page ---- */
       "community.page.title": "Community",
       "community.page.sub": "Meet the pilots shaping VirtualSkyList.",
       "community.seeTrends": "See trends",
-      "stat.members.value": "8,400+",
       "stat.members.label": "Active members",
-      "stat.lists.value": "1,260+",
-      "stat.lists.label": "Tier lists created",
-      "stat.votes.value": "50K+",
+      "stat.lists.label": "Tier lists available",
       "stat.votes.label": "Total votes",
-      "stat.aircraft.value": "640+",
       "stat.aircraft.label": "Aircraft listed",
 
       "leaderboard.title": "Top contributors",
-      "lb.row1.role": "Tier list creator", "lb.row1.score": "2,840 pts",
-      "lb.row2.role": "Top voter", "lb.row2.score": "1,920 pts",
-      "lb.row3.role": "Tier list creator", "lb.row3.score": "1,510 pts",
-      "lb.row4.role": "Top voter", "lb.row4.score": "1,180 pts",
-      "lb.row5.role": "Active member", "lb.row5.score": "940 pts",
+      "leaderboard.empty": "No contributors yet.",
 
       "activity.title": "Recent activity",
-      "act1.text": "AeroRanker updated Commercial Airliners", "act1.time": "2h ago",
-      "act2.text": "SkyMarshal voted on Best Airports", "act2.time": "4h ago",
-      "act3.text": "New member: RunwayReady", "act3.time": "6h ago",
-      "act4.text": "ILS_Approach suggested an aircraft: Boeing 777-8", "act4.time": "9h ago",
-      "act5.text": "HeavyMetalHeli created Best Airline Liveries", "act5.time": "1d ago",
+      "activity.empty": "No recent activity.",
 
       /* ---- Tier list builder page ---- */
       "builder.validate": "Submit my ranking",
@@ -515,6 +471,17 @@
       refreshGrid();
     });
     searchInput?.addEventListener("input", refreshGrid);
+
+    // Allow other pages to deep-link into a pre-filtered category,
+    // e.g. tier-lists.html?filter=addons
+    const initialFilter = new URLSearchParams(location.search).get("filter");
+    const initialTab = initialFilter && categoryTabs?.querySelector(`.filter-tab[data-filter="${initialFilter}"]`);
+    if (initialTab) {
+      categoryTabs.querySelectorAll(".filter-tab").forEach((tb) => tb.classList.remove("is-active"));
+      initialTab.classList.add("is-active");
+      activeCategory = initialFilter;
+    }
+
     refreshGrid();
   }
 
