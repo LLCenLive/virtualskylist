@@ -94,22 +94,22 @@
     <div class="stat-grid">
       <div class="stat-card">
         <svg class="icon"><use href="#i-users"/></svg>
-        <div class="stat-value">—</div>
+        <div class="stat-value" id="stat-members">—</div>
         <div class="stat-label" data-i18n="stat.members.label">Membres actifs</div>
       </div>
       <div class="stat-card">
         <svg class="icon"><use href="#i-list"/></svg>
-        <div class="stat-value">—</div>
+        <div class="stat-value" id="stat-lists">—</div>
         <div class="stat-label" data-i18n="stat.lists.label">Tier lists disponibles</div>
       </div>
       <div class="stat-card">
         <svg class="icon"><use href="#i-trending"/></svg>
-        <div class="stat-value">—</div>
+        <div class="stat-value" id="stat-votes">—</div>
         <div class="stat-label" data-i18n="stat.votes.label">Votes total</div>
       </div>
       <div class="stat-card">
         <svg class="icon"><use href="#i-plane"/></svg>
-        <div class="stat-value">—</div>
+        <div class="stat-value" id="stat-aircraft">—</div>
         <div class="stat-label" data-i18n="stat.aircraft.label">Avions référencés</div>
       </div>
     </div>
@@ -120,20 +120,22 @@
         <div class="panel-head">
           <div class="section-title"><svg class="icon"><use href="#i-trophy"/></svg><span data-i18n="leaderboard.title">Meilleurs contributeurs</span></div>
         </div>
-        <div class="panel-empty">
+        <div class="panel-empty" id="leaderboard-empty">
           <svg class="icon"><use href="#i-trophy"/></svg>
           <p data-i18n="leaderboard.empty">Aucun contributeur pour le moment.</p>
         </div>
+        <div class="leaderboard" id="leaderboard-content" style="display:none"></div>
       </div>
 
       <div class="panel">
         <div class="panel-head">
           <div class="section-title"><svg class="icon"><use href="#i-zap"/></svg><span data-i18n="activity.title">Activité récente</span></div>
         </div>
-        <div class="panel-empty">
+        <div class="panel-empty" id="activity-empty">
           <svg class="icon"><use href="#i-zap"/></svg>
           <p data-i18n="activity.empty">Aucune activité récente.</p>
         </div>
+        <div class="activity-list" id="activity-content" style="display:none"></div>
       </div>
     </div>
   </div>
@@ -183,5 +185,6 @@
 
 <script src="script.js"></script>
 <script type="module" src="auth.js"></script>
+<script type="module" src="community.js"></script>
 </body>
 </html>

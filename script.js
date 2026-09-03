@@ -247,7 +247,16 @@
       "admin.clash.publish": "Publier ce round",
       "admin.field.category": "Catégorie",
       "day.sun": "Dim", "day.mon": "Lun", "day.tue": "Mar", "day.wed": "Mer",
-      "day.thu": "Jeu", "day.fri": "Ven", "day.sat": "Sam"
+      "day.thu": "Jeu", "day.fri": "Ven", "day.sat": "Sam",
+
+      "activity.newTierlist": "Nouvelle tier list : {label}",
+      "activity.newMember": "Nouveau membre : {actor}",
+      "activity.newSuggestion": "{actor} a proposé : {label}",
+      "leaderboard.suggestions": "{n} suggestion(s)",
+      "time.justNow": "À l’instant",
+      "time.minutesAgo": "Il y a {n} min",
+      "time.hoursAgo": "Il y a {n} h",
+      "time.daysAgo": "Il y a {n} j"
     },
 
     en: {
@@ -492,7 +501,16 @@
       "admin.clash.publish": "Publish this round",
       "admin.field.category": "Category",
       "day.sun": "Sun", "day.mon": "Mon", "day.tue": "Tue", "day.wed": "Wed",
-      "day.thu": "Thu", "day.fri": "Fri", "day.sat": "Sat"
+      "day.thu": "Thu", "day.fri": "Fri", "day.sat": "Sat",
+
+      "activity.newTierlist": "New tier list: {label}",
+      "activity.newMember": "New member: {actor}",
+      "activity.newSuggestion": "{actor} suggested: {label}",
+      "leaderboard.suggestions": "{n} suggestion(s)",
+      "time.justNow": "Just now",
+      "time.minutesAgo": "{n} min ago",
+      "time.hoursAgo": "{n}h ago",
+      "time.daysAgo": "{n}d ago"
     }
   };
 
