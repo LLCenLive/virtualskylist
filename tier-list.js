@@ -12,7 +12,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 //    Until these are set, the page shows a setup banner instead
 //    of trying (and failing) to reach a backend.
 // -------------------------------------------------------------
-const SUPABASE_URL = "https://jqjcqpqtqargrzitzzux.supabase.co/rest/v1/";
+const SUPABASE_URL = "https://jqjcqpqtqargrzitzzux.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_Wl43gUYhwHdSTk3Uc0HtnQ_5FRJOe7_";
 
 const isConfigured =
