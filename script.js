@@ -250,7 +250,7 @@
       "day.thu": "Jeu", "day.fri": "Ven", "day.sat": "Sam",
 
       "activity.newTierlist": "Nouvelle tier list : {label}",
-      "activity.newMember": "Nouveau membre : {actor}",
+      "activity.newMember": "Un nouveau membre s’est inscrit",
       "activity.newSuggestion": "{actor} a proposé : {label}",
       "leaderboard.suggestions": "{n} suggestion(s)",
       "time.justNow": "À l’instant",
@@ -504,7 +504,7 @@
       "day.thu": "Thu", "day.fri": "Fri", "day.sat": "Sat",
 
       "activity.newTierlist": "New tier list: {label}",
-      "activity.newMember": "New member: {actor}",
+      "activity.newMember": "A new member has joined",
       "activity.newSuggestion": "{actor} suggested: {label}",
       "leaderboard.suggestions": "{n} suggestion(s)",
       "time.justNow": "Just now",

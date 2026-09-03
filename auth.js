@@ -103,7 +103,17 @@ el.form?.addEventListener("submit", async (e) => {
       if (error) throw error;
       closeModal();
     } else {
-      const { error } = await supabase.auth.signUp({ email, password });
+      // Explicit redirect target — Supabase's auth server can otherwise
+      // mis-derive it from the browser's Referer header, which drops the
+      // path on cross-origin requests (breaks GitHub Pages project sites
+      // like user.github.io/repo/). Must also be added to Supabase →
+      // Authentication → URL Configuration → Redirect URLs.
+      const siteDir = window.location.origin + window.location.pathname.split("/").slice(0, -1).join("/") + "/";
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { emailRedirectTo: siteDir },
+      });
       if (error) throw error;
       showNote(t("auth.success.signup"));
     }
