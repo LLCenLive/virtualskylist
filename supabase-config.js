@@ -10,8 +10,8 @@
 // =============================================================
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const SUPABASE_URL = "YOUR_SUPABASE_URL";
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+const SUPABASE_URL = "https://jqjcqpqtqargrzitzzux.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_Wl43gUYhwHdSTk3Uc0HtnQ5FRJOe7_";
 
 export const isConfigured =
   SUPABASE_URL && !SUPABASE_URL.startsWith("YOUR_") &&
