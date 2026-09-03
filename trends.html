@@ -100,10 +100,11 @@
         <svg class="icon"><use href="#i-medal"/></svg>
         <span data-i18n="trends.podium.title">Top 3 de la semaine</span>
       </div>
-      <div class="panel-empty">
+      <div class="panel-empty" id="podium-empty">
         <svg class="icon"><use href="#i-medal"/></svg>
         <p data-i18n="trends.podium.empty">Pas encore de classement cette semaine.</p>
       </div>
+      <div class="podium" id="podium-content" style="display:none"></div>
     </div>
 
     <!-- ============ RISERS / FALLERS ============ -->
@@ -112,30 +113,33 @@
         <div class="panel-head">
           <div class="section-title"><svg class="icon"><use href="#i-trending"/></svg><span data-i18n="trends.risers.title">Plus fortes progressions</span></div>
         </div>
-        <div class="panel-empty">
+        <div class="panel-empty" id="risers-empty">
           <svg class="icon"><use href="#i-trending"/></svg>
           <p data-i18n="trends.risers.empty">Aucune progression pour le moment.</p>
         </div>
+        <div class="rank-list" id="risers-content" style="display:none"></div>
       </div>
 
       <div class="panel">
         <div class="panel-head">
           <div class="section-title"><svg class="icon" style="color:#f87171"><use href="#i-trending"/></svg><span data-i18n="trends.fallers.title">Plus fortes baisses</span></div>
         </div>
-        <div class="panel-empty">
+        <div class="panel-empty" id="fallers-empty">
           <svg class="icon"><use href="#i-trending"/></svg>
           <p data-i18n="trends.fallers.empty">Aucune baisse pour le moment.</p>
         </div>
+        <div class="rank-list" id="fallers-content" style="display:none"></div>
       </div>
     </div>
 
     <!-- ============ ACTIVITY CHART ============ -->
     <div class="panel chart-panel" style="margin-top:22px">
       <div class="section-title"><svg class="icon"><use href="#i-bar-chart"/></svg><span data-i18n="trends.chart.title">Activité de vote</span></div>
-      <div class="panel-empty">
+      <div class="panel-empty" id="chart-empty">
         <svg class="icon"><use href="#i-bar-chart"/></svg>
         <p data-i18n="trends.chart.empty">Pas encore de données de vote.</p>
       </div>
+      <div class="chart-bars" id="chart-content" style="display:none"></div>
     </div>
   </div>
 </main>
@@ -184,5 +188,6 @@
 
 <script src="script.js"></script>
 <script type="module" src="auth.js"></script>
+<script type="module" src="trends.js"></script>
 </body>
 </html>

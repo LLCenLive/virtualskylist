@@ -245,7 +245,9 @@
       "admin.field.itemB": "Concurrent B",
       "admin.field.imageUrl": "URL de l’image (optionnel)",
       "admin.clash.publish": "Publier ce round",
-      "admin.field.category": "Catégorie"
+      "admin.field.category": "Catégorie",
+      "day.sun": "Dim", "day.mon": "Lun", "day.tue": "Mar", "day.wed": "Mer",
+      "day.thu": "Jeu", "day.fri": "Ven", "day.sat": "Sam"
     },
 
     en: {
@@ -488,7 +490,9 @@
       "admin.field.itemB": "Contender B",
       "admin.field.imageUrl": "Image URL (optional)",
       "admin.clash.publish": "Publish this round",
-      "admin.field.category": "Category"
+      "admin.field.category": "Category",
+      "day.sun": "Sun", "day.mon": "Mon", "day.tue": "Tue", "day.wed": "Wed",
+      "day.thu": "Thu", "day.fri": "Fri", "day.sat": "Sat"
     }
   };
 
