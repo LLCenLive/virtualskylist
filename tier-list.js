@@ -13,7 +13,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 //    of trying (and failing) to reach a backend.
 // -------------------------------------------------------------
 const SUPABASE_URL = "https://jqjcqpqtqargrzitzzux.supabase.co/rest/v1/";
-const SUPABASE_ANON_KEY = "sb_publishable_Wl43gUYhwHdSTk3Uc0HtnQ5FRJOe7";
+const SUPABASE_ANON_KEY = "sb_publishable_Wl43gUYhwHdSTk3Uc0HtnQ_5FRJOe7_";
 
 const isConfigured =
   SUPABASE_URL && !SUPABASE_URL.startsWith("YOUR_") &&
