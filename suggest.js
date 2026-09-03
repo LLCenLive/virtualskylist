@@ -18,6 +18,40 @@ function showToast(msg) {
   setTimeout(() => toastEl.classList.remove("is-visible"), 3200);
 }
 
+/* =============================================================
+   Proactive gate: show upfront (not just on submit) that signing
+   in is required, and disable the forms until then.
+   ============================================================= */
+const loginNote = document.getElementById("suggest-login-note");
+const loginBtn = document.getElementById("suggest-login-btn");
+const allForms = ["suggest-tierlist-form", "suggest-aircraft-form"]
+  .map((id) => document.getElementById(id))
+  .filter(Boolean);
+
+function setFormsEnabled(enabled) {
+  allForms.forEach((form) => {
+    form.querySelectorAll("input, select, button").forEach((field) => {
+      field.disabled = !enabled;
+    });
+    form.classList.toggle("is-disabled", !enabled);
+  });
+}
+
+function refreshGateUI(session) {
+  const loggedIn = !!session?.user;
+  if (loginNote) loginNote.style.display = loggedIn ? "none" : "flex";
+  setFormsEnabled(loggedIn);
+}
+
+loginBtn?.addEventListener("click", () => window.VSL_AUTH?.openModal("signin"));
+
+if (isConfigured) {
+  supabase.auth.getSession().then(({ data }) => refreshGateUI(data.session));
+  supabase.auth.onAuthStateChange((_event, session) => refreshGateUI(session));
+} else {
+  setFormsEnabled(false);
+}
+
 function wireForm({ formId, nameId, categoryId, errorId, kind, toastKey }) {
   const form = document.getElementById(formId);
   if (!form) return;

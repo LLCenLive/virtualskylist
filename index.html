@@ -193,6 +193,15 @@
   <!-- ============ SUGGEST CONTENT ============ -->
   <section class="suggest" id="suggest">
     <div class="wrap suggest-grid">
+      <div class="suggest-login-note" id="suggest-login-note" style="display:none">
+        <svg class="icon"><use href="#i-shield"/></svg>
+        <span data-i18n="suggest.needLogin">Connecte-toi pour proposer du contenu.</span>
+        <button type="button" class="btn btn-outline btn-sm" id="suggest-login-btn">
+          <svg class="icon"><use href="#i-login"/></svg>
+          <span data-i18n="nav.signin">Se connecter</span>
+        </button>
+      </div>
+
       <div class="suggest-intro">
         <span class="eyebrow"><svg class="icon"><use href="#i-send"/></svg><span data-i18n="suggest.eyebrow">PROPOSER DU CONTENU</span></span>
         <h2 data-i18n="suggest.title">Aidez à façonner VirtualSkyList</h2>
@@ -266,9 +275,7 @@
       <a href="contact.html" data-i18n="footer.contact">Contact</a>
       <a href="https://discord.com/invite/wcU7JBCQQH" target="_blank" rel="noopener noreferrer">Discord</a>
     </nav>
-  </div>
-  <div class="wrap footer-credit">
-    <span data-i18n="footer.credit">Site réalisé par LLCenLive</span> · <a href="https://twitch.tv/llcenlive" target="_blank" rel="noopener noreferrer">twitch.tv/llcenlive</a>
+    <span class="footer-credit"><span data-i18n="footer.credit">Site réalisé par LLCenLive</span> · <a href="https://twitch.tv/llcenlive" target="_blank" rel="noopener noreferrer">twitch.tv/llcenlive</a></span>
   </div>
 </footer>
 
