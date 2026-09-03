@@ -75,6 +75,9 @@
       "footer.privacy": "Confidentialité",
       "footer.terms": "Conditions",
       "footer.contact": "Contact",
+      "footer.credit": "Site réalisé par LLCenLive",
+
+      "nav.admin": "Admin",
 
       "toast.tierlist": "Merci ! Ta suggestion de tier list a bien été envoyée.",
       "toast.aircraft": "Merci ! Ta suggestion d’avion a bien été envoyée.",
@@ -151,7 +154,50 @@
       "tier.a.label": "Excellents",
       "tier.b.label": "Solides",
       "tier.c.label": "Corrects",
-      "tier.d.label": "À éviter"
+      "tier.d.label": "À éviter",
+
+      /* ---- Auth modal ---- */
+      "auth.title.signin": "Se connecter",
+      "auth.title.signup": "Créer un compte",
+      "auth.email.label": "Email",
+      "auth.password.label": "Mot de passe",
+      "auth.submit.signin": "Se connecter",
+      "auth.submit.signup": "Créer le compte",
+      "auth.switch.toSignup": "Pas encore de compte ? Crée-en un",
+      "auth.switch.toSignin": "Déjà un compte ? Connecte-toi",
+      "auth.error.generic": "Une erreur est survenue. Réessaie.",
+      "auth.success.signup": "Compte créé ! Vérifie tes emails pour confirmer.",
+      "auth.signout": "Déconnexion",
+
+      /* ---- Admin page ---- */
+      "admin.page.title": "Administration",
+      "admin.page.sub": "Gère les tier lists et leurs éléments.",
+      "admin.gate.needLogin.title": "Connexion requise",
+      "admin.gate.needLogin.body": "Connecte-toi pour accéder à l’administration.",
+      "admin.gate.notAdmin.title": "Accès refusé",
+      "admin.gate.notAdmin.body": "Ton compte n’a pas les droits d’administration.",
+      "admin.notConfigured": "Backend non connecté.",
+      "admin.tierlists.title": "Tier lists",
+      "admin.addTierlist": "Ajouter une tier list",
+      "admin.field.slug": "Identifiant (slug)",
+      "admin.field.titleFr": "Titre (FR)",
+      "admin.field.titleEn": "Titre (EN)",
+      "admin.field.descFr": "Description (FR)",
+      "admin.field.descEn": "Description (EN)",
+      "admin.save": "Enregistrer",
+      "admin.cancel": "Annuler",
+      "admin.delete": "Supprimer",
+      "admin.edit": "Modifier",
+      "admin.items.title": "Éléments",
+      "admin.addItem": "Ajouter un élément",
+      "admin.field.name": "Nom",
+      "admin.field.subtitle": "Sous-titre (optionnel)",
+      "admin.confirmDeleteList": "Supprimer cette tier list et tous ses éléments ?",
+      "admin.confirmDeleteItem": "Supprimer cet élément ?",
+      "admin.saved": "Enregistré.",
+      "admin.deleted": "Supprimé.",
+      "admin.loadError": "Impossible de charger les données.",
+      "admin.noItems": "Aucun élément pour le moment."
     },
 
     en: {
@@ -224,6 +270,9 @@
       "footer.privacy": "Privacy",
       "footer.terms": "Terms",
       "footer.contact": "Contact",
+      "footer.credit": "Made by LLCenLive",
+
+      "nav.admin": "Admin",
 
       "toast.tierlist": "Thanks! Your tier list suggestion was sent.",
       "toast.aircraft": "Thanks! Your aircraft suggestion was sent.",
@@ -300,11 +349,95 @@
       "tier.a.label": "Excellent",
       "tier.b.label": "Solid",
       "tier.c.label": "Decent",
-      "tier.d.label": "Avoid"
+      "tier.d.label": "Avoid",
+
+      /* ---- Auth modal ---- */
+      "auth.title.signin": "Sign In",
+      "auth.title.signup": "Create an account",
+      "auth.email.label": "Email",
+      "auth.password.label": "Password",
+      "auth.submit.signin": "Sign In",
+      "auth.submit.signup": "Create account",
+      "auth.switch.toSignup": "No account yet? Create one",
+      "auth.switch.toSignin": "Already have an account? Sign in",
+      "auth.error.generic": "Something went wrong. Please try again.",
+      "auth.success.signup": "Account created! Check your email to confirm.",
+      "auth.signout": "Sign out",
+
+      /* ---- Admin page ---- */
+      "admin.page.title": "Admin",
+      "admin.page.sub": "Manage tier lists and their items.",
+      "admin.gate.needLogin.title": "Sign in required",
+      "admin.gate.needLogin.body": "Sign in to access the admin area.",
+      "admin.gate.notAdmin.title": "Access denied",
+      "admin.gate.notAdmin.body": "Your account doesn't have admin rights.",
+      "admin.notConfigured": "Backend not connected.",
+      "admin.tierlists.title": "Tier Lists",
+      "admin.addTierlist": "Add a tier list",
+      "admin.field.slug": "Slug",
+      "admin.field.titleFr": "Title (FR)",
+      "admin.field.titleEn": "Title (EN)",
+      "admin.field.descFr": "Description (FR)",
+      "admin.field.descEn": "Description (EN)",
+      "admin.save": "Save",
+      "admin.cancel": "Cancel",
+      "admin.delete": "Delete",
+      "admin.edit": "Edit",
+      "admin.items.title": "Items",
+      "admin.addItem": "Add an item",
+      "admin.field.name": "Name",
+      "admin.field.subtitle": "Subtitle (optional)",
+      "admin.confirmDeleteList": "Delete this tier list and all its items?",
+      "admin.confirmDeleteItem": "Delete this item?",
+      "admin.saved": "Saved.",
+      "admin.deleted": "Deleted.",
+      "admin.loadError": "Couldn't load data.",
+      "admin.noItems": "No items yet."
     }
   };
 
   let currentLang = "fr";
+
+  /* =======================================================
+     Language persistence across navigation.
+     A full static multi-page site has no shared JS state
+     between page loads, so the chosen language is carried in
+     a `?lang=` URL param instead: every internal link on the
+     page gets rewritten to include it, and each page reads it
+     back on load. Works with no storage permissions needed and
+     keeps URLs shareable/bookmarkable in the right language.
+     ======================================================= */
+  function getLangFromUrl() {
+    const val = new URLSearchParams(location.search).get("lang");
+    return val === "en" ? "en" : "fr";
+  }
+
+  function withLang(href, lang) {
+    const hashIndex = href.indexOf("#");
+    const hash = hashIndex === -1 ? "" : href.slice(hashIndex);
+    const pathAndQuery = hashIndex === -1 ? href : href.slice(0, hashIndex);
+    const qIndex = pathAndQuery.indexOf("?");
+    const path = qIndex === -1 ? pathAndQuery : pathAndQuery.slice(0, qIndex);
+    const query = qIndex === -1 ? "" : pathAndQuery.slice(qIndex + 1);
+    const params = new URLSearchParams(query);
+    params.set("lang", lang);
+    return `${path}?${params.toString()}${hash}`;
+  }
+
+  function syncInternalLinks(lang) {
+    document.querySelectorAll("a[href]").forEach((a) => {
+      const href = a.getAttribute("href");
+      if (!href || href.startsWith("#")) return;
+      if (/^([a-z]+:)?\/\//i.test(href) || href.startsWith("mailto:") || href.startsWith("tel:")) return;
+      a.setAttribute("href", withLang(href, lang));
+    });
+  }
+
+  function syncCurrentUrl(lang) {
+    const params = new URLSearchParams(location.search);
+    params.set("lang", lang);
+    history.replaceState(null, "", `${location.pathname}?${params.toString()}${location.hash}`);
+  }
 
   function applyTranslations(lang) {
     currentLang = lang;
@@ -330,6 +463,9 @@
       lang === "fr"
         ? "VirtualSkyList — Classez l'aviation. Découvrez les favoris de la communauté."
         : "VirtualSkyList — Rank aviation. Discover the community's favorites.";
+
+    syncInternalLinks(lang);
+    syncCurrentUrl(lang);
 
     document.dispatchEvent(new CustomEvent("vsl:langchange", { detail: { lang } }));
   }
@@ -485,5 +621,5 @@
     refreshGrid();
   }
 
-  applyTranslations("fr");
+  applyTranslations(getLangFromUrl());
 })();

@@ -29,6 +29,9 @@
     <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
     <symbol id="i-bar-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></symbol>
     <symbol id="i-medal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7.2 9.4 5 3h5l2 5.1"/><path d="M16.8 9.4 19 3h-5l-2 5.1"/><circle cx="12" cy="15" r="6"/><path d="M12 12v3l2 1.2"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.35 8.95a1 1 0 0 1-.6.05C8.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></symbol>
   </defs>
 </svg>
 
@@ -51,10 +54,26 @@
         <button type="button" data-lang="fr" class="is-active">FR</button>
         <button type="button" data-lang="en">EN</button>
       </div>
-      <button type="button" class="btn btn-outline btn-sm">
+      <button type="button" class="btn btn-outline btn-sm" id="signin-btn">
         <svg class="icon"><use href="#i-login"/></svg>
         <span data-i18n="nav.signin">Se connecter</span>
       </button>
+      <div class="user-menu" id="user-menu" style="display:none">
+        <button type="button" class="user-chip" id="user-chip">
+          <span class="user-avatar" id="user-avatar">•</span>
+          <span class="user-email" id="user-email"></span>
+        </button>
+        <div class="user-dropdown" id="user-dropdown">
+          <a href="admin.html" class="user-dropdown-item" id="user-admin-link" style="display:none">
+            <svg class="icon"><use href="#i-shield"/></svg>
+            <span data-i18n="nav.admin">Admin</span>
+          </a>
+          <button type="button" class="user-dropdown-item" id="signout-btn">
+            <svg class="icon"><use href="#i-logout"/></svg>
+            <span data-i18n="auth.signout">Déconnexion</span>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </header>
@@ -133,6 +152,9 @@
       <a href="#" data-i18n="footer.contact">Contact</a>
     </nav>
   </div>
+  <div class="wrap footer-credit">
+    <span data-i18n="footer.credit">Site réalisé par LLCenLive</span> · <a href="https://twitch.tv/llcenlive" target="_blank" rel="noopener noreferrer">twitch.tv/llcenlive</a>
+  </div>
 </footer>
 
 <div class="toast" id="toast">
@@ -140,6 +162,27 @@
   <span id="toast-text"></span>
 </div>
 
+<!-- ============ AUTH MODAL ============ -->
+<div class="modal-overlay" id="auth-modal">
+  <div class="modal-box">
+    <button type="button" class="modal-close" id="auth-close-btn" aria-label="Close">
+      <svg class="icon"><use href="#i-x"/></svg>
+    </button>
+    <h2 id="auth-modal-title" data-i18n="auth.title.signin">Se connecter</h2>
+    <form id="auth-form">
+      <label class="field-label" for="auth-email" data-i18n="auth.email.label">Email</label>
+      <input class="field" type="email" id="auth-email" required autocomplete="email">
+      <label class="field-label" for="auth-password" data-i18n="auth.password.label">Mot de passe</label>
+      <input class="field" type="password" id="auth-password" required minlength="6" autocomplete="current-password">
+      <p class="auth-error" id="auth-error" style="display:none"></p>
+      <p class="auth-note" id="auth-note" style="display:none"></p>
+      <button type="submit" class="btn btn-primary btn-block" id="auth-submit-btn" data-i18n="auth.submit.signin">Se connecter</button>
+    </form>
+    <button type="button" class="auth-switch-link" id="auth-toggle-mode" data-i18n="auth.switch.toSignup">Pas encore de compte ? Crée-en un</button>
+  </div>
+</div>
+
 <script src="script.js"></script>
+<script type="module" src="auth.js"></script>
 </body>
 </html>

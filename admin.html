@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VirtualSkyList — Tier List</title>
-<meta name="description" content="Classe les avions, compagnies et add-ons par glisser-déposer et compare ton classement à celui de la communauté.">
+<title>VirtualSkyList — Administration</title>
+<meta name="description" content="Gère les tier lists et leurs éléments sur VirtualSkyList.">
+<meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 34 34%22><rect width=%2234%22 height=%2234%22 rx=%229%22 fill=%22%233d8bff%22/><path d=%22M25.7 20.9 23.9 14l3-3c1.3-1.3 1.7-2.9 1.3-3.6-.7-.7-2.3-.3-3.6 1l-3 3-6.9-1.8c-.4-.1-.8.1-1 .4l-.2.4c-.2.4-.1.8.2 1.1l4.3 3.4-1.7 2.5H13l-.9.9 2.6 1.7 1.7 2.6.9-.9v-2.6l2.5-1.7 3.4 4.3c.3.3.7.4 1.1.2l.4-.2c.3-.2.5-.6.4-1z%22 fill=%22white%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,12 +25,13 @@
     <symbol id="i-login" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></symbol>
     <symbol id="i-check-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><polyline points="22 4 12 14.1 9 11.1"/></symbol>
     <symbol id="i-plane" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2Z"/></symbol>
-    <symbol id="i-alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></symbol>
-    <symbol id="i-rotate-ccw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol>
-    <symbol id="i-trophy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.7V17c0 .6-.5 1-1 1.2-1.2.5-2 1.9-2 3.8"/><path d="M14 14.7V17c0 .6.5 1 1 1.2 1.2.5 2 1.9 2 3.8"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
     <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.35 8.95a1 1 0 0 1-.6.05C8.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1Z"/></symbol>
     <symbol id="i-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></symbol>
+    <symbol id="i-plus-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
   </defs>
 </svg>
 
@@ -42,7 +44,7 @@
     </a>
     <nav class="main-nav">
       <a href="index.html"><svg class="icon"><use href="#i-home"/></svg><span data-i18n="nav.home">Accueil</span></a>
-      <a href="tier-lists.html" class="is-active"><svg class="icon"><use href="#i-list"/></svg><span data-i18n="nav.tierlists">Tier Lists</span></a>
+      <a href="tier-lists.html"><svg class="icon"><use href="#i-list"/></svg><span data-i18n="nav.tierlists">Tier Lists</span></a>
       <a href="trends.html"><svg class="icon"><use href="#i-trending"/></svg><span data-i18n="nav.trends">Tendances</span></a>
       <a href="community.html"><svg class="icon"><use href="#i-users"/></svg><span data-i18n="nav.community">Communauté</span></a>
       <a href="index.html#suggest"><svg class="icon"><use href="#i-bulb"/></svg><span data-i18n="nav.suggest">Proposer du contenu</span></a>
@@ -80,54 +82,67 @@
   <div class="wrap">
     <div class="page-header">
       <div>
-        <h1 id="tl-title">…</h1>
-        <p id="tl-desc"></p>
-      </div>
-      <div class="builder-actions">
-        <button type="button" class="btn btn-outline" id="reset-btn">
-          <svg class="icon"><use href="#i-rotate-ccw"/></svg>
-          <span data-i18n="builder.reset">Réinitialiser</span>
-        </button>
-        <button type="button" class="btn btn-primary" id="validate-btn">
-          <svg class="icon"><use href="#i-check-circle"/></svg>
-          <span data-i18n="builder.validate">Valider mon classement</span>
-        </button>
+        <h1 data-i18n="admin.page.title">Administration</h1>
+        <p data-i18n="admin.page.sub">Gère les tier lists et leurs éléments.</p>
       </div>
     </div>
 
-    <!-- Shown only if SUPABASE_URL / SUPABASE_ANON_KEY haven't been set in tier-list.js -->
-    <div class="setup-banner" id="setup-banner" style="display:none">
-      <svg class="icon"><use href="#i-alert-triangle"/></svg>
-      <div>
-        <b>Backend non connecté.</b> Ajoute ton <code>SUPABASE_URL</code> et ta clé
-        <code>SUPABASE_ANON_KEY</code> en haut du fichier <code>tier-list.js</code>
-        pour activer le vote et le classement communautaire. Le fichier
-        <code>schema.sql</code> fourni crée les tables nécessaires — à exécuter une
-        fois dans l'éditeur SQL de ton projet Supabase.
-      </div>
+    <div class="state-msg" id="admin-state-msg" data-i18n="builder.loading">Chargement…</div>
+
+    <!-- Shown when signed out, not admin, or backend not configured -->
+    <div class="admin-gate" id="admin-gate" style="display:none">
+      <svg class="icon" id="admin-gate-icon"><use href="#i-shield"/></svg>
+      <h2 id="admin-gate-title"></h2>
+      <p id="admin-gate-body"></p>
+      <button type="button" class="btn btn-primary" id="admin-gate-cta" style="display:none">
+        <svg class="icon"><use href="#i-login"/></svg>
+        <span data-i18n="nav.signin">Se connecter</span>
+      </button>
     </div>
 
-    <div class="state-msg" id="state-msg" data-i18n="builder.loading">Chargement…</div>
-
-    <div class="builder-layout" id="builder-layout" style="display:none">
-      <div>
-        <div class="tier-board" id="tier-board"></div>
-
-        <div class="panel hangar-panel">
-          <div class="panel-head">
-            <div class="section-title"><span data-i18n="builder.hangar">Hangar</span></div>
-            <span class="form-note" data-i18n="builder.hangarHint">Fais glisser chaque élément dans un tier.</span>
-          </div>
-          <div class="drop-zone" id="hangar-zone" role="list" aria-label="Hangar"></div>
-        </div>
-      </div>
-
-      <div class="panel community-panel">
+    <!-- Main CRUD UI, shown only once confirmed admin -->
+    <div id="admin-content" style="display:none">
+      <div class="panel">
         <div class="panel-head">
-          <div class="section-title"><svg class="icon"><use href="#i-trophy"/></svg><span data-i18n="builder.community">Classement de la communauté</span></div>
+          <div class="section-title"><svg class="icon"><use href="#i-list"/></svg><span data-i18n="admin.tierlists.title">Tier lists</span></div>
+          <button type="button" class="btn btn-outline btn-sm" id="admin-add-tl-btn">
+            <svg class="icon"><use href="#i-plus-circle"/></svg>
+            <span data-i18n="admin.addTierlist">Ajouter une tier list</span>
+          </button>
         </div>
-        <div class="rank-list" id="community-body"></div>
-        <div class="community-empty" id="community-empty" style="display:none"></div>
+
+        <form class="admin-tl-form" id="admin-tl-form" style="display:none; margin-bottom:18px">
+          <input type="hidden" id="tl-form-id">
+          <div class="admin-form-grid">
+            <div>
+              <label class="field-label" for="tl-form-slug" data-i18n="admin.field.slug">Identifiant (slug)</label>
+              <input class="field" id="tl-form-slug" required pattern="[a-z0-9\-]+" placeholder="ex. meilleurs-helicopteres">
+            </div>
+            <div></div>
+            <div>
+              <label class="field-label" for="tl-form-title-fr" data-i18n="admin.field.titleFr">Titre (FR)</label>
+              <input class="field" id="tl-form-title-fr" required>
+            </div>
+            <div>
+              <label class="field-label" for="tl-form-title-en" data-i18n="admin.field.titleEn">Titre (EN)</label>
+              <input class="field" id="tl-form-title-en" required>
+            </div>
+            <div class="field-full">
+              <label class="field-label" for="tl-form-desc-fr" data-i18n="admin.field.descFr">Description (FR)</label>
+              <input class="field" id="tl-form-desc-fr">
+            </div>
+            <div class="field-full">
+              <label class="field-label" for="tl-form-desc-en" data-i18n="admin.field.descEn">Description (EN)</label>
+              <input class="field" id="tl-form-desc-en">
+            </div>
+          </div>
+          <div class="builder-actions" style="margin-top:14px">
+            <button type="button" class="btn btn-outline" id="tl-form-cancel" data-i18n="admin.cancel">Annuler</button>
+            <button type="submit" class="btn btn-primary" id="tl-form-submit" data-i18n="admin.save">Enregistrer</button>
+          </div>
+        </form>
+
+        <div class="admin-list" id="admin-tl-list"></div>
       </div>
     </div>
   </div>
@@ -152,11 +167,6 @@
   </div>
 </footer>
 
-<div class="toast" id="toast">
-  <svg class="icon"><use href="#i-check-circle"/></svg>
-  <span id="toast-text"></span>
-</div>
-
 <!-- ============ AUTH MODAL ============ -->
 <div class="modal-overlay" id="auth-modal">
   <div class="modal-box">
@@ -177,8 +187,13 @@
   </div>
 </div>
 
+<div class="toast" id="toast">
+  <svg class="icon"><use href="#i-check-circle"/></svg>
+  <span id="toast-text"></span>
+</div>
+
 <script src="script.js"></script>
 <script type="module" src="auth.js"></script>
-<script type="module" src="tier-list.js"></script>
+<script type="module" src="admin.js"></script>
 </body>
 </html>

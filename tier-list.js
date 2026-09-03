@@ -4,22 +4,7 @@
 // drag & drop placement, submitting a ranking, and rendering
 // the live community podium from the `item_scores` view.
 // =============================================================
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
-
-// -------------------------------------------------------------
-// 1. CONFIGURE ME — paste your Supabase project's values here.
-//    Project → Settings → API → "Project URL" and "anon public" key.
-//    Until these are set, the page shows a setup banner instead
-//    of trying (and failing) to reach a backend.
-// -------------------------------------------------------------
-const SUPABASE_URL = "https://jqjcqpqtqargrzitzzux.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_Wl43gUYhwHdSTk3Uc0HtnQ_5FRJOe7_";
-
-const isConfigured =
-  SUPABASE_URL && !SUPABASE_URL.startsWith("YOUR_") &&
-  SUPABASE_ANON_KEY && !SUPABASE_ANON_KEY.startsWith("YOUR_");
-
-const supabase = isConfigured ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
+import { supabase, isConfigured } from "./supabase-config.js";
 
 // -------------------------------------------------------------
 // Session id — identifies "this browser" so a re-submitted
