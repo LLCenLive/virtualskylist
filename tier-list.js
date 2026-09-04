@@ -326,16 +326,43 @@ function resetBoard() {
 /* =============================================================
    Export the board as a PNG image
    ============================================================= */
+function escapeHtml(str) {
+  const d = document.createElement("div");
+  d.textContent = str ?? "";
+  return d.innerHTML;
+}
+
 async function exportBoardAsPng() {
   const label = el.exportBtn.querySelector("span");
   const originalText = label.textContent;
   el.exportBtn.disabled = true;
   label.textContent = t("builder.exporting");
 
+  const wrapper = document.createElement("div");
+  wrapper.style.cssText =
+    "position:fixed; left:-9999px; top:0; width:820px; background:#0e1526; padding:32px; font-family:'Inter',sans-serif; box-sizing:border-box;";
+  wrapper.innerHTML = `
+    <div style="text-align:center; margin-bottom:22px;">
+      <div style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:24px; color:#eef2f9;">${escapeHtml(el.title.textContent)}</div>
+      <div style="font-size:13px; font-weight:700; letter-spacing:0.04em; color:#5fa8ff; margin-top:6px;">VIRTUALSKYLIST</div>
+    </div>
+  `;
+
+  const boardClone = el.board.cloneNode(true);
+  boardClone.style.width = "100%";
+  wrapper.appendChild(boardClone);
+
+  const footer = document.createElement("div");
+  footer.style.cssText = "text-align:center; margin-top:22px; padding-top:16px; border-top:1px solid rgba(148,178,224,0.15); font-size:12px; color:#5c6a89;";
+  footer.textContent = "Réalisé par LLCenLive";
+  wrapper.appendChild(footer);
+
+  document.body.appendChild(wrapper);
+
   try {
     const mod = await import("https://esm.sh/html2canvas@1.4.1");
     const html2canvas = mod.default;
-    const canvas = await html2canvas(el.board, {
+    const canvas = await html2canvas(wrapper, {
       backgroundColor: "#0e1526",
       scale: 2,
       useCORS: true,
@@ -348,6 +375,7 @@ async function exportBoardAsPng() {
     console.error(err);
     showToast(t("builder.error"));
   } finally {
+    document.body.removeChild(wrapper);
     el.exportBtn.disabled = false;
     label.textContent = originalText;
   }
